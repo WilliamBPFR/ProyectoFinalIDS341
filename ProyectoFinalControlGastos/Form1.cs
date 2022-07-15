@@ -5,6 +5,7 @@ namespace ProyectoFinalControlGastos
         public Form1()
         {
             InitializeComponent();
+        //Otro Cambio 
         }
     }
 }
