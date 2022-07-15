@@ -12,7 +12,7 @@ namespace ProyectoFinalControlGastos
 
         }
 
-        private void buttonCreateUser_Click(object sender, EventArgs e)
+        private void buttonCreateUser_Click(object sender, EventArgs e) // Abre un form para crear usuario y esconde el de Login
         {
             var CreateUser = new CreateUser();
             CreateUser.Show();

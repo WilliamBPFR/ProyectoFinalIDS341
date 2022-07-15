@@ -21,5 +21,27 @@ namespace ProyectoFinalControlGastos
         {
 
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
+            CloseForm();
+        }
+
+        private void CloseForm()//Busca el Form de Login Original y lo muestra
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item is Login)
+                {
+                    item.Show();
+                }
+            }
+        }
+
+        private void CreateUser_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CloseForm();
+        }
     }
 }

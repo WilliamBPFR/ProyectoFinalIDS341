@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProyectoFinalControlGastos.Models
 {
-    internal class Class1
+    internal class Transactions
     {
         public string TypeTrans { get; set; }
         public int ID { get; set; }

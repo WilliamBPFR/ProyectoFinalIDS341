@@ -45,6 +45,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxRepeatPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -221,12 +223,38 @@
             this.label9.Text = "Repetir Contraseña:";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(287, 332);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 34);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "Crear";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // buttonCancel
+            // 
+            this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonCancel.Location = new System.Drawing.Point(120, 332);
+            this.buttonCancel.Name = "buttonCancel";
+            this.buttonCancel.Size = new System.Drawing.Size(100, 34);
+            this.buttonCancel.TabIndex = 20;
+            this.buttonCancel.Text = "Cancelar";
+            this.buttonCancel.UseVisualStyleBackColor = false;
+            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            // 
             // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(530, 378);
+            this.Controls.Add(this.buttonCancel);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBoxRepeatPassword);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBoxPassword);
@@ -246,6 +274,7 @@
             this.Controls.Add(this.label2);
             this.Name = "CreateUser";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateUser_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +299,7 @@
         private Label label8;
         private TextBox textBoxRepeatPassword;
         private Label label9;
+        private Button button1;
+        private Button buttonCancel;
     }
 }
