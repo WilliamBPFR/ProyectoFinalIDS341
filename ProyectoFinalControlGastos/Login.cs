@@ -11,5 +11,12 @@ namespace ProyectoFinalControlGastos
         {
 
         }
+
+        private void buttonCreateUser_Click(object sender, EventArgs e)
+        {
+            var CreateUser = new CreateUser();
+            CreateUser.Show();
+            Hide();
+        }
     }
 }
