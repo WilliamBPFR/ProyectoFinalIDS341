@@ -36,7 +36,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.AddNewCategoryButtom = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.AddNewCategory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // AddCancel
@@ -114,9 +116,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.label2.Location = new System.Drawing.Point(31, 240);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 19);
+            this.label2.Size = new System.Drawing.Size(163, 19);
             this.label2.TabIndex = 6;
-            this.label2.Text = "Tipo de Transacción";
+            this.label2.Text = "Categoria de Transacción";
             // 
             // comboBox1
             // 
@@ -129,20 +131,44 @@
             "Salud"});
             this.comboBox1.Location = new System.Drawing.Point(27, 262);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(145, 23);
+            this.comboBox1.Size = new System.Drawing.Size(150, 23);
             this.comboBox1.TabIndex = 7;
             // 
-            // button1
+            // AddNewCategoryButtom
             // 
-            this.button1.BackColor = System.Drawing.Color.LimeGreen;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(178, 262);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 23);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "+";
-            this.button1.UseVisualStyleBackColor = false;
+            this.AddNewCategoryButtom.BackColor = System.Drawing.Color.LimeGreen;
+            this.AddNewCategoryButtom.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddNewCategoryButtom.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddNewCategoryButtom.Location = new System.Drawing.Point(183, 262);
+            this.AddNewCategoryButtom.Name = "AddNewCategoryButtom";
+            this.AddNewCategoryButtom.Size = new System.Drawing.Size(24, 23);
+            this.AddNewCategoryButtom.TabIndex = 8;
+            this.AddNewCategoryButtom.Text = "+";
+            this.AddNewCategoryButtom.UseVisualStyleBackColor = false;
+            this.AddNewCategoryButtom.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label3.Location = new System.Drawing.Point(133, 53);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(17, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "$";
+            // 
+            // AddNewCategory
+            // 
+            this.AddNewCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.AddNewCategory.Enabled = false;
+            this.AddNewCategory.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddNewCategory.Location = new System.Drawing.Point(27, 302);
+            this.AddNewCategory.Name = "AddNewCategory";
+            this.AddNewCategory.Size = new System.Drawing.Size(180, 21);
+            this.AddNewCategory.TabIndex = 10;
+            this.AddNewCategory.Text = "Añadir nueva categoria (opcional)";
             // 
             // AddTransaction
             // 
@@ -150,7 +176,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(587, 483);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddNewCategory);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.AddNewCategoryButtom);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
@@ -177,6 +205,8 @@
         private Label label1;
         private Label label2;
         private ComboBox comboBox1;
-        private Button button1;
+        private Button AddNewCategoryButtom;
+        private Label label3;
+        private TextBox AddNewCategory;
     }
 }

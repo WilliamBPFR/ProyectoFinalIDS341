@@ -16,5 +16,11 @@ namespace ProyectoFinalControlGastos
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AddNewCategory.Enabled = true;
+            AddNewCategory.Text = null;
+        }
     }
 }
