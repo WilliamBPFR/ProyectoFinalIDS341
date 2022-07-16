@@ -101,6 +101,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::ProyectoFinalControlGastos.Properties.Resources.factura;
             this.pictureBox1.Location = new System.Drawing.Point(-20, 305);
             this.pictureBox1.Name = "pictureBox1";
