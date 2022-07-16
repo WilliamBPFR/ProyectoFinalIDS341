@@ -31,14 +31,16 @@
             this.GeneralTitle = new System.Windows.Forms.Label();
             this.GeneralView = new System.Windows.Forms.Button();
             this.GeneralAdd = new System.Windows.Forms.Button();
-            this.GeneralAjustes = new System.Windows.Forms.Button();
+            this.GeneralSettings = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // GeneralTitle
             // 
             this.GeneralTitle.AutoSize = true;
-            this.GeneralTitle.Font = new System.Drawing.Font("Old English Text MT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.GeneralTitle.ForeColor = System.Drawing.Color.White;
+            this.GeneralTitle.Font = new System.Drawing.Font("Old English Text MT", 26.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point);
+            this.GeneralTitle.ForeColor = System.Drawing.Color.Gold;
             this.GeneralTitle.Location = new System.Drawing.Point(77, 72);
             this.GeneralTitle.Name = "GeneralTitle";
             this.GeneralTitle.Size = new System.Drawing.Size(270, 42);
@@ -51,7 +53,7 @@
             // 
             this.GeneralView.BackColor = System.Drawing.Color.Magenta;
             this.GeneralView.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GeneralView.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GeneralView.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GeneralView.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GeneralView.Image = global::ProyectoFinalControlGastos.Properties.Resources.lista_de_precios;
             this.GeneralView.Location = new System.Drawing.Point(103, 173);
@@ -66,7 +68,7 @@
             // 
             this.GeneralAdd.BackColor = System.Drawing.Color.Lime;
             this.GeneralAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GeneralAdd.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.GeneralAdd.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.GeneralAdd.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.GeneralAdd.Image = global::ProyectoFinalControlGastos.Properties.Resources.anadir;
             this.GeneralAdd.Location = new System.Drawing.Point(103, 241);
@@ -78,23 +80,33 @@
             this.GeneralAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.GeneralAdd.UseVisualStyleBackColor = false;
             // 
-            // GeneralAjustes
+            // GeneralSettings
             // 
-            this.GeneralAjustes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.GeneralAjustes.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.GeneralAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.GeneralAjustes.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.GeneralAjustes.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GeneralAjustes.Image = global::ProyectoFinalControlGastos.Properties.Resources.configuraciones___blanco;
-            this.GeneralAjustes.Location = new System.Drawing.Point(332, 10);
-            this.GeneralAjustes.Name = "GeneralAjustes";
-            this.GeneralAjustes.Size = new System.Drawing.Size(91, 39);
-            this.GeneralAjustes.TabIndex = 4;
-            this.GeneralAjustes.Text = "Ajustes";
-            this.GeneralAjustes.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.GeneralAjustes.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.GeneralAjustes.UseVisualStyleBackColor = false;
-            this.GeneralAjustes.Click += new System.EventHandler(this.button1_Click);
+            this.GeneralSettings.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.GeneralSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.GeneralSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.GeneralSettings.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.GeneralSettings.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.GeneralSettings.Image = global::ProyectoFinalControlGastos.Properties.Resources.configuraciones___blanco;
+            this.GeneralSettings.Location = new System.Drawing.Point(302, 10);
+            this.GeneralSettings.Name = "GeneralSettings";
+            this.GeneralSettings.Size = new System.Drawing.Size(121, 39);
+            this.GeneralSettings.TabIndex = 4;
+            this.GeneralSettings.Text = "Configuración";
+            this.GeneralSettings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.GeneralSettings.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.GeneralSettings.UseVisualStyleBackColor = false;
+            this.GeneralSettings.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::ProyectoFinalControlGastos.Properties.Resources.factura;
+            this.pictureBox1.Location = new System.Drawing.Point(-20, 305);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(181, 144);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
             // 
             // General
             // 
@@ -102,13 +114,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(426, 450);
-            this.Controls.Add(this.GeneralAjustes);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.GeneralSettings);
             this.Controls.Add(this.GeneralAdd);
             this.Controls.Add(this.GeneralView);
             this.Controls.Add(this.GeneralTitle);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "General";
-            this.Text = "Form1";
+            this.Text = "Nombre de la app";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -119,6 +133,7 @@
         private Label GeneralTitle;
         private Button GeneralView;
         private Button GeneralAdd;
-        private Button GeneralAjustes;
+        private Button GeneralSettings;
+        private PictureBox pictureBox1;
     }
 }

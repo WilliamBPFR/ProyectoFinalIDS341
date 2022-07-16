@@ -24,7 +24,9 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            var Settings = new Settings();
+            Settings.Show();
+            Hide();
         }
     }
 }
