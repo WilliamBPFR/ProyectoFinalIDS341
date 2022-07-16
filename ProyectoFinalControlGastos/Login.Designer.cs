@@ -104,6 +104,7 @@
             // 
             this.buttonAccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonAccess.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonAccess.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonAccess.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonAccess.Location = new System.Drawing.Point(210, 274);
             this.buttonAccess.Name = "buttonAccess";
@@ -111,11 +112,13 @@
             this.buttonAccess.TabIndex = 6;
             this.buttonAccess.Text = "Acceder";
             this.buttonAccess.UseVisualStyleBackColor = false;
+            this.buttonAccess.Click += new System.EventHandler(this.buttonAccess_Click);
             // 
             // buttonCancel
             // 
             this.buttonCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.buttonCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCancel.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonCancel.Location = new System.Drawing.Point(84, 274);
             this.buttonCancel.Name = "buttonCancel";
@@ -128,6 +131,7 @@
             // 
             this.buttonCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.buttonCreateUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.buttonCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCreateUser.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonCreateUser.Location = new System.Drawing.Point(126, 323);
             this.buttonCreateUser.Name = "buttonCreateUser";

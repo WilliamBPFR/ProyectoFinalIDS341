@@ -18,5 +18,9 @@ namespace ProyectoFinalControlGastos
             CreateUser.Show();
             Hide();
         }
+
+        private void buttonAccess_Click(object sender, EventArgs e)
+        {
+        }
     }
 }
