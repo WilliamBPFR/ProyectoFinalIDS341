@@ -16,5 +16,10 @@ namespace ProyectoFinalControlGastos
         {
             InitializeComponent();
         }
+
+        private void ChangePassword_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
