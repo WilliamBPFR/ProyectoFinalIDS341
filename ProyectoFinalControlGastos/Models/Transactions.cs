@@ -8,6 +8,7 @@ namespace ProyectoFinalControlGastos.Models
 {
     internal class Transactions
     {
+        public string UserId { get; set; }
         public string TypeTrans { get; set; }
         public int ID { get; set; }
         public string Descripcion { get; set; }
