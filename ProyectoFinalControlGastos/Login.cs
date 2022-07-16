@@ -21,6 +21,9 @@ namespace ProyectoFinalControlGastos
 
         private void buttonAccess_Click(object sender, EventArgs e)
         {
+            var General = new General();
+            General.Show();
+            Hide();
         }
     }
 }

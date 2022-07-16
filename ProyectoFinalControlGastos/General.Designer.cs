@@ -63,6 +63,7 @@
             this.GeneralView.Text = "Ver Transacciones";
             this.GeneralView.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.GeneralView.UseVisualStyleBackColor = false;
+            this.GeneralView.Click += new System.EventHandler(this.GeneralView_Click);
             // 
             // GeneralAdd
             // 
@@ -124,6 +125,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "General";
             this.Text = "Nombre de la app";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.General_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -33,5 +33,15 @@ namespace ProyectoFinalControlGastos
         {
 
         }
+
+        private void GeneralView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void General_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
