@@ -10,8 +10,9 @@
 
 namespace ProyectoFinalControlGastos.Properties {
     using System;
-    
-    
+    using System.Drawing;
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -23,7 +24,7 @@ namespace ProyectoFinalControlGastos.Properties {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
-        
+        internal static Image factura;
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
@@ -96,36 +97,6 @@ namespace ProyectoFinalControlGastos.Properties {
         internal static System.Drawing.Bitmap configuraciones30x30 {
             get {
                 object obj = ResourceManager.GetObject("configuraciones30x30", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap documento {
-            get {
-                object obj = ResourceManager.GetObject("documento", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap documento_1_ {
-            get {
-                object obj = ResourceManager.GetObject("documento(1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap factura {
-            get {
-                object obj = ResourceManager.GetObject("factura", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -79,6 +79,7 @@
             this.GeneralAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.GeneralAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.GeneralAdd.UseVisualStyleBackColor = false;
+            this.GeneralAdd.Click += new System.EventHandler(this.GeneralAdd_Click);
             // 
             // GeneralSettings
             // 
