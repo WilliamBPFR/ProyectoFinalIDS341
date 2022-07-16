@@ -31,7 +31,9 @@ namespace ProyectoFinalControlGastos
 
         private void GeneralAdd_Click(object sender, EventArgs e)
         {
-
+            var Add = new AddTransaction();
+            Add.Show();
+            Hide();
         }
 
         private void GeneralView_Click(object sender, EventArgs e)
