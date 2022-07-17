@@ -31,5 +31,33 @@ namespace ProyectoFinalControlGastos
         {
 
         }
+
+        private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string password = Microsoft.VisualBasic.Interaction.InputBox("ADAASAS", "ASAA");
+
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Cerrar();
+        }
+
+        private void Cerrar() {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item is General)
+                {
+                    item.Show();
+                    Close();
+                }
+            }
+        }
+
+        private void Filtler_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cerrar();
+        }
     }
 }

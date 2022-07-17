@@ -20,7 +20,8 @@ namespace ProyectoFinalControlGastos
 
         private void InitializeDatos()
         {
-         
+            textBox.Text = Program.logedUser.Name;
+
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -42,6 +43,11 @@ namespace ProyectoFinalControlGastos
         }
 
         private void Settings_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_TextChanged(object sender, EventArgs e)
         {
 
         }
