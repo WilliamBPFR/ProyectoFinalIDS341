@@ -79,6 +79,7 @@
             this.AddAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.AddAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.AddAdd.UseVisualStyleBackColor = false;
+            this.AddAdd.Click += new System.EventHandler(this.AddAdd_Click);
             // 
             // AddAmount
             // 

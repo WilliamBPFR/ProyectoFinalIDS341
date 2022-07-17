@@ -35,5 +35,10 @@ namespace ProyectoFinalControlGastos
             General.Show();
             Hide();
         }
+
+        private void AddAdd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
