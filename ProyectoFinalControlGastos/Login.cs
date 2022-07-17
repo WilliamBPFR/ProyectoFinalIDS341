@@ -25,6 +25,9 @@ namespace ProyectoFinalControlGastos
         private void buttonAccess_Click(object sender, EventArgs e)
         {
             LookRecord();
+            
+            textBoxEmail.Text = string.Empty;
+            textBoxPassword.Text = string.Empty;
         }
 
         private void LookRecord()

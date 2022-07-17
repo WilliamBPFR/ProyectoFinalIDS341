@@ -37,7 +37,6 @@
             this.AddCategory = new System.Windows.Forms.Label();
             this.AddCategories = new System.Windows.Forms.ComboBox();
             this.AddNewCategoryButtom = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.AddNewCategory = new System.Windows.Forms.TextBox();
             this.AddNameText = new System.Windows.Forms.TextBox();
             this.AddName = new System.Windows.Forms.Label();
@@ -45,6 +44,8 @@
             this.AddDateTimer = new System.Windows.Forms.DateTimePicker();
             this.AddPagos = new System.Windows.Forms.ComboBox();
             this.AddPago = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddCancel
@@ -87,7 +88,7 @@
             this.AddAmount.BackColor = System.Drawing.Color.Transparent;
             this.AddAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddAmount.ForeColor = System.Drawing.Color.Gold;
-            this.AddAmount.Location = new System.Drawing.Point(33, 104);
+            this.AddAmount.Location = new System.Drawing.Point(105, 104);
             this.AddAmount.Name = "AddAmount";
             this.AddAmount.Size = new System.Drawing.Size(50, 19);
             this.AddAmount.TabIndex = 2;
@@ -97,7 +98,7 @@
             // 
             this.AddAmountText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.AddAmountText.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddAmountText.Location = new System.Drawing.Point(29, 125);
+            this.AddAmountText.Location = new System.Drawing.Point(106, 125);
             this.AddAmountText.Name = "AddAmountText";
             this.AddAmountText.Size = new System.Drawing.Size(100, 21);
             this.AddAmountText.TabIndex = 3;
@@ -166,18 +167,6 @@
             this.AddNewCategoryButtom.Text = "+";
             this.AddNewCategoryButtom.UseVisualStyleBackColor = false;
             this.AddNewCategoryButtom.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.ForeColor = System.Drawing.Color.Gold;
-            this.label3.Location = new System.Drawing.Point(135, 127);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(17, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "$";
             // 
             // AddNewCategory
             // 
@@ -261,12 +250,44 @@
             this.AddPago.TabIndex = 15;
             this.AddPago.Text = "Método de Pago";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Gold;
+            this.label1.Location = new System.Drawing.Point(28, 102);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 19);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Moneda";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Efectivo",
+            "Tarjeta de Debito",
+            "Tarjeta de Credito",
+            "Transferencia",
+            "Paypal"});
+            this.comboBox1.Location = new System.Drawing.Point(28, 122);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(71, 23);
+            this.comboBox1.TabIndex = 18;
+            // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(587, 483);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.AddPagos);
             this.Controls.Add(this.AddPago);
             this.Controls.Add(this.AddDateTimer);
@@ -274,7 +295,6 @@
             this.Controls.Add(this.AddNameText);
             this.Controls.Add(this.AddName);
             this.Controls.Add(this.AddNewCategory);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.AddNewCategoryButtom);
             this.Controls.Add(this.AddCategories);
             this.Controls.Add(this.AddCategory);
@@ -303,7 +323,6 @@
         private Label AddCategory;
         private ComboBox AddCategories;
         private Button AddNewCategoryButtom;
-        private Label label3;
         private TextBox AddNewCategory;
         private TextBox AddNameText;
         private Label AddName;
@@ -311,5 +330,7 @@
         private DateTimePicker AddDateTimer;
         private ComboBox AddPagos;
         private Label AddPago;
+        private Label label1;
+        private ComboBox comboBox1;
     }
 }

@@ -49,6 +49,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonCrearMoneda = new System.Windows.Forms.Button();
             this.groupBoxCreateUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +93,7 @@
             // 
             // groupBoxCreateUser
             // 
+            this.groupBoxCreateUser.Controls.Add(this.buttonCrearMoneda);
             this.groupBoxCreateUser.Controls.Add(this.comboBoxOcupations);
             this.groupBoxCreateUser.Controls.Add(this.AddNewOcupationButton);
             this.groupBoxCreateUser.Controls.Add(this.textBoxRepeatPassword);
@@ -182,16 +184,16 @@
             // 
             this.comboBoxCoin.FormattingEnabled = true;
             this.comboBoxCoin.Items.AddRange(new object[] {
-            "Euro",
-            "Dolar",
-            "Peso Dominicano",
-            "Peso Mexicano",
-            "Soles",
-            "Yuan",
-            "Rublo"});
+            "€ EUR",
+            "$ USD",
+            "$ DOP",
+            "$ MXN",
+            "Sol",
+            "¥ CNY",
+            "$ RUB"});
             this.comboBoxCoin.Location = new System.Drawing.Point(393, 115);
             this.comboBoxCoin.Name = "comboBoxCoin";
-            this.comboBoxCoin.Size = new System.Drawing.Size(149, 23);
+            this.comboBoxCoin.Size = new System.Drawing.Size(122, 23);
             this.comboBoxCoin.TabIndex = 30;
             // 
             // label7
@@ -292,6 +294,19 @@
             this.label1.TabIndex = 19;
             this.label1.Text = "Nombre:";
             // 
+            // buttonCrearMoneda
+            // 
+            this.buttonCrearMoneda.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonCrearMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCrearMoneda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonCrearMoneda.Location = new System.Drawing.Point(518, 115);
+            this.buttonCrearMoneda.Name = "buttonCrearMoneda";
+            this.buttonCrearMoneda.Size = new System.Drawing.Size(24, 21);
+            this.buttonCrearMoneda.TabIndex = 36;
+            this.buttonCrearMoneda.Text = "+";
+            this.buttonCrearMoneda.UseVisualStyleBackColor = false;
+            this.buttonCrearMoneda.Click += new System.EventHandler(this.button2_Click);
+            // 
             // CreateUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -335,5 +350,6 @@
         private Label label1;
         private Button AddNewOcupationButton;
         private ComboBox comboBoxOcupations;
+        private Button buttonCrearMoneda;
     }
 }

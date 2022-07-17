@@ -36,6 +36,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.AddNewOcupationButton = new System.Windows.Forms.Button();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,7 +50,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.AddNewOcupationButton = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,6 +152,18 @@
             this.groupBox1.Size = new System.Drawing.Size(572, 172);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
+            // 
+            // AddNewOcupationButton
+            // 
+            this.AddNewOcupationButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.AddNewOcupationButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddNewOcupationButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddNewOcupationButton.Location = new System.Drawing.Point(537, 86);
+            this.AddNewOcupationButton.Name = "AddNewOcupationButton";
+            this.AddNewOcupationButton.Size = new System.Drawing.Size(24, 21);
+            this.AddNewOcupationButton.TabIndex = 25;
+            this.AddNewOcupationButton.Text = "+";
+            this.AddNewOcupationButton.UseVisualStyleBackColor = false;
             // 
             // comboBox2
             // 
@@ -277,17 +290,18 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Datos del Uusario:";
             // 
-            // AddNewOcupationButton
+            // button5
             // 
-            this.AddNewOcupationButton.BackColor = System.Drawing.Color.LimeGreen;
-            this.AddNewOcupationButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddNewOcupationButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddNewOcupationButton.Location = new System.Drawing.Point(537, 86);
-            this.AddNewOcupationButton.Name = "AddNewOcupationButton";
-            this.AddNewOcupationButton.Size = new System.Drawing.Size(24, 21);
-            this.AddNewOcupationButton.TabIndex = 25;
-            this.AddNewOcupationButton.Text = "+";
-            this.AddNewOcupationButton.UseVisualStyleBackColor = false;
+            this.button5.BackColor = System.Drawing.Color.SpringGreen;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button5.Location = new System.Drawing.Point(12, 9);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(93, 34);
+            this.button5.TabIndex = 25;
+            this.button5.Text = "LogOut";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // Settings
             // 
@@ -295,6 +309,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(598, 327);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.textBox6);
@@ -337,5 +352,6 @@
         private TextBox textBox1;
         private Label label1;
         private Button AddNewOcupationButton;
+        private Button button5;
     }
 }

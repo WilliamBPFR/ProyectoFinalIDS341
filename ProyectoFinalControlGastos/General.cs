@@ -61,9 +61,16 @@ namespace ProyectoFinalControlGastos
             else {
                 labelName.Text = Program.logedUser.NickName;
             }
+
+            labelID.Text = Program.logedUser.Id.ToString();
         }
 
         private void General_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

@@ -35,6 +35,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.labelName = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -135,12 +137,36 @@
             this.labelName.Size = new System.Drawing.Size(0, 22);
             this.labelName.TabIndex = 7;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(8, 31);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 22);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "ID:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // labelID
+            // 
+            this.labelID.AutoSize = true;
+            this.labelID.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.labelID.ForeColor = System.Drawing.Color.DarkOrange;
+            this.labelID.Location = new System.Drawing.Point(41, 31);
+            this.labelID.Name = "labelID";
+            this.labelID.Size = new System.Drawing.Size(0, 22);
+            this.labelID.TabIndex = 9;
+            // 
             // General
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(426, 450);
+            this.Controls.Add(this.labelID);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.labelName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -168,5 +194,7 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Label labelName;
+        private Label label2;
+        private Label labelID;
     }
 }

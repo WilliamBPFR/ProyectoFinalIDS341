@@ -18,8 +18,7 @@ namespace ProyectoFinalControlGastos
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            
+        {   
             AddCategories.Items.Add(AddNewCategory.Text);
             
         }

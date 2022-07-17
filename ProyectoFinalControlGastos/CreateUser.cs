@@ -14,9 +14,12 @@ namespace ProyectoFinalControlGastos
 {
     public partial class CreateUser : Form
     {
+        public List <string> Monedas = new List<string> { "€ EUR", "$ USD", "$ DOP", "$ MXN", "Sol", "¥ CNY", "$ RUB"};
         public CreateUser()
         {
             InitializeComponent();
+            InicializeOcupations(false);
+            InicializeMonedas(false);
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -98,7 +101,7 @@ namespace ProyectoFinalControlGastos
             save.Write(json);
             save.Close();
 
-            MessageBox.Show("El ususario ha sido creadoe exitosamente", "!Craedo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("El ususario ha sido creadoe exitosamente", "!Craedo!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Clear();
         }
 
@@ -133,45 +136,107 @@ namespace ProyectoFinalControlGastos
 
         private void AddNewCategoryButtom_Click(object sender, EventArgs e)
         {
-            var json = string.Empty;
-            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\ocupations.json";
-            var ocupationList = new List<string>();
-            string newocupation; 
-
-            if (File.Exists(pathFile)) {
-                json = File.ReadAllText(pathFile);
-                ocupationList = JsonConvert.DeserializeObject<List<string>>(json);
-            }
-
-            newocupation = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva ocupación.\nLuego pulse Aceptar para guardarla.", "Agregar Ocupación");
-
-            if (newocupation == string.Empty || newocupation == null) {
-                return;
-            }
-
-            foreach (var item in ocupationList)
-            {
-                if (item.ToString().ToLower() == newocupation.ToLower())
-                {
-                    MessageBox.Show("La ocupación ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            ocupationList.Add(newocupation);
-
-            json = JsonConvert.SerializeObject(ocupationList);
-            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
-            save.Write(json);
-            save.Close();
-
-            comboBoxOcupations.DataSource = ocupationList;
-
-                MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            InicializeOcupations(true);
         }
 
         private void comboBoxOcupations_Enter(object sender, EventArgs e)
         {
 
+        }
+
+        private void InicializeOcupations(bool adding) {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\ocupations.json";
+            var ocupationList = new List<string>();
+            string newocupation;
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile);
+                ocupationList = JsonConvert.DeserializeObject<List<string>>(json);
+                comboBoxOcupations.DataSource = ocupationList;
+            }
+
+            if (adding)
+            {
+                newocupation = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva ocupación.\nLuego pulse Aceptar para guardarla.", "Agregar Ocupación");
+
+                if (newocupation == string.Empty || newocupation == null)
+                {
+                    return;
+                }
+
+                foreach (var item in ocupationList)
+                {
+                    if (item.ToString().ToLower() == newocupation.ToLower())
+                    {
+                        MessageBox.Show("La ocupación ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                ocupationList.Add(newocupation);
+
+                json = JsonConvert.SerializeObject(ocupationList);
+                var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+                save.Write(json);
+                save.Close();
+
+                comboBoxOcupations.DataSource = ocupationList;
+
+                MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            }
+
+        private void InicializeMonedas(bool adding) {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
+            var monedaList = new List<string>();
+            string newmoneda;
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile);
+                monedaList = JsonConvert.DeserializeObject<List<string>>(json);
+                comboBoxCoin.DataSource = monedaList;
+            }
+            else {
+                monedaList = Monedas;
+                comboBoxCoin.DataSource = monedaList;
+            }
+
+            if (adding)
+            {
+                newmoneda = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva moneda.\nLuego pulse Aceptar para guardarla.", "Agregar Moneda");
+
+                if (newmoneda == string.Empty || newmoneda == null)
+                {
+                    return;
+                }
+
+                foreach (var item in monedaList)
+                {
+                    if (item.ToString().ToLower() == newmoneda.ToLower())
+                    {
+                        MessageBox.Show("La moneda ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                monedaList.Add(newmoneda);
+
+                json = JsonConvert.SerializeObject(monedaList);
+                var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+                save.Write(json);
+                save.Close();
+
+                comboBoxOcupations.DataSource = monedaList;
+
+                MessageBox.Show("La moneda ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            InicializeMonedas(true);
         }
     }
 }
