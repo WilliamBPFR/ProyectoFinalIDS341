@@ -45,7 +45,7 @@
             this.AddPagos = new System.Windows.Forms.ComboBox();
             this.AddPago = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCoin = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddCancel
@@ -262,23 +262,23 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Moneda";
             // 
-            // comboBox1
+            // comboBoxCoin
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.comboBox1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxCoin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxCoin.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCoin.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxCoin.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxCoin.FormattingEnabled = true;
+            this.comboBoxCoin.Items.AddRange(new object[] {
             "Efectivo",
             "Tarjeta de Debito",
             "Tarjeta de Credito",
             "Transferencia",
             "Paypal"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 122);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(71, 23);
-            this.comboBox1.TabIndex = 18;
+            this.comboBoxCoin.Location = new System.Drawing.Point(28, 122);
+            this.comboBoxCoin.Name = "comboBoxCoin";
+            this.comboBoxCoin.Size = new System.Drawing.Size(71, 23);
+            this.comboBoxCoin.TabIndex = 18;
             // 
             // AddTransaction
             // 
@@ -286,7 +286,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(587, 483);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxCoin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddPagos);
             this.Controls.Add(this.AddPago);
@@ -307,6 +307,7 @@
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Name = "AddTransaction";
             this.Text = "Añadir Transacción";
+            this.Load += new System.EventHandler(this.AddTransaction_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,6 +332,6 @@
         private ComboBox AddPagos;
         private Label AddPago;
         private Label label1;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxCoin;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace ProyectoFinalControlGastos
         public AddTransaction()
         {
             InitializeComponent();
+            InicializeMonedas();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +38,22 @@ namespace ProyectoFinalControlGastos
         }
 
         private void AddAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InicializeMonedas()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile);
+                comboBoxCoin.DataSource = JsonConvert.DeserializeObject<List<string>>(json);
+            }
+        }
+        private void AddTransaction_Load(object sender, EventArgs e)
         {
 
         }
