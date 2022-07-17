@@ -32,6 +32,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxCreateUser = new System.Windows.Forms.GroupBox();
+            this.comboBoxOcupations = new System.Windows.Forms.ComboBox();
+            this.AddNewOcupationButton = new System.Windows.Forms.Button();
             this.textBoxRepeatPassword = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
@@ -40,7 +42,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxOcupation = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.textBoxNickName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -56,7 +57,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(136, 9);
+            this.label2.Location = new System.Drawing.Point(150, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(263, 31);
             this.label2.TabIndex = 2;
@@ -91,6 +92,8 @@
             // 
             // groupBoxCreateUser
             // 
+            this.groupBoxCreateUser.Controls.Add(this.comboBoxOcupations);
+            this.groupBoxCreateUser.Controls.Add(this.AddNewOcupationButton);
             this.groupBoxCreateUser.Controls.Add(this.textBoxRepeatPassword);
             this.groupBoxCreateUser.Controls.Add(this.label9);
             this.groupBoxCreateUser.Controls.Add(this.textBoxPassword);
@@ -99,7 +102,6 @@
             this.groupBoxCreateUser.Controls.Add(this.label7);
             this.groupBoxCreateUser.Controls.Add(this.textBoxEmail);
             this.groupBoxCreateUser.Controls.Add(this.label6);
-            this.groupBoxCreateUser.Controls.Add(this.textBoxOcupation);
             this.groupBoxCreateUser.Controls.Add(this.label5);
             this.groupBoxCreateUser.Controls.Add(this.textBoxNickName);
             this.groupBoxCreateUser.Controls.Add(this.label4);
@@ -110,9 +112,31 @@
             this.groupBoxCreateUser.Location = new System.Drawing.Point(12, 75);
             this.groupBoxCreateUser.Margin = new System.Windows.Forms.Padding(0);
             this.groupBoxCreateUser.Name = "groupBoxCreateUser";
-            this.groupBoxCreateUser.Size = new System.Drawing.Size(528, 251);
+            this.groupBoxCreateUser.Size = new System.Drawing.Size(548, 251);
             this.groupBoxCreateUser.TabIndex = 21;
             this.groupBoxCreateUser.TabStop = false;
+            // 
+            // comboBoxOcupations
+            // 
+            this.comboBoxOcupations.FormattingEnabled = true;
+            this.comboBoxOcupations.Location = new System.Drawing.Point(366, 65);
+            this.comboBoxOcupations.Name = "comboBoxOcupations";
+            this.comboBoxOcupations.Size = new System.Drawing.Size(149, 23);
+            this.comboBoxOcupations.TabIndex = 35;
+            this.comboBoxOcupations.Enter += new System.EventHandler(this.comboBoxOcupations_Enter);
+            // 
+            // AddNewOcupationButton
+            // 
+            this.AddNewOcupationButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.AddNewOcupationButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddNewOcupationButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddNewOcupationButton.Location = new System.Drawing.Point(518, 68);
+            this.AddNewOcupationButton.Name = "AddNewOcupationButton";
+            this.AddNewOcupationButton.Size = new System.Drawing.Size(24, 21);
+            this.AddNewOcupationButton.TabIndex = 22;
+            this.AddNewOcupationButton.Text = "+";
+            this.AddNewOcupationButton.UseVisualStyleBackColor = false;
+            this.AddNewOcupationButton.Click += new System.EventHandler(this.AddNewCategoryButtom_Click);
             // 
             // textBoxRepeatPassword
             // 
@@ -120,7 +144,7 @@
             this.textBoxRepeatPassword.Location = new System.Drawing.Point(194, 204);
             this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
             this.textBoxRepeatPassword.PasswordChar = '*';
-            this.textBoxRepeatPassword.Size = new System.Drawing.Size(322, 26);
+            this.textBoxRepeatPassword.Size = new System.Drawing.Size(348, 26);
             this.textBoxRepeatPassword.TabIndex = 34;
             // 
             // label9
@@ -140,7 +164,7 @@
             this.textBoxPassword.Location = new System.Drawing.Point(128, 158);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(388, 26);
+            this.textBoxPassword.Size = new System.Drawing.Size(411, 26);
             this.textBoxPassword.TabIndex = 32;
             // 
             // label8
@@ -167,7 +191,7 @@
             "Rublo"});
             this.comboBoxCoin.Location = new System.Drawing.Point(393, 115);
             this.comboBoxCoin.Name = "comboBoxCoin";
-            this.comboBoxCoin.Size = new System.Drawing.Size(121, 23);
+            this.comboBoxCoin.Size = new System.Drawing.Size(149, 23);
             this.comboBoxCoin.TabIndex = 30;
             // 
             // label7
@@ -199,14 +223,6 @@
             this.label6.Size = new System.Drawing.Size(63, 22);
             this.label6.TabIndex = 27;
             this.label6.Text = "Email:";
-            // 
-            // textBoxOcupation
-            // 
-            this.textBoxOcupation.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxOcupation.Location = new System.Drawing.Point(366, 66);
-            this.textBoxOcupation.Name = "textBoxOcupation";
-            this.textBoxOcupation.Size = new System.Drawing.Size(150, 26);
-            this.textBoxOcupation.TabIndex = 26;
             // 
             // label5
             // 
@@ -243,7 +259,7 @@
             this.textBoxLastName.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBoxLastName.Location = new System.Drawing.Point(366, 13);
             this.textBoxLastName.Name = "textBoxLastName";
-            this.textBoxLastName.Size = new System.Drawing.Size(150, 26);
+            this.textBoxLastName.Size = new System.Drawing.Size(173, 26);
             this.textBoxLastName.TabIndex = 22;
             // 
             // label3
@@ -281,7 +297,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(552, 378);
+            this.ClientSize = new System.Drawing.Size(563, 378);
             this.Controls.Add(this.groupBoxCreateUser);
             this.Controls.Add(this.buttonCancel);
             this.Controls.Add(this.button1);
@@ -310,7 +326,6 @@
         private Label label7;
         private TextBox textBoxEmail;
         private Label label6;
-        private TextBox textBoxOcupation;
         private Label label5;
         private TextBox textBoxNickName;
         private Label label4;
@@ -318,5 +333,7 @@
         private Label label3;
         private TextBox textBoxName;
         private Label label1;
+        private Button AddNewOcupationButton;
+        private ComboBox comboBoxOcupations;
     }
 }

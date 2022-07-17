@@ -15,6 +15,7 @@ namespace ProyectoFinalControlGastos
         public General()
         {
             InitializeComponent();
+            LoadName();
         }
 
         private void GeneralTitle_Click(object sender, EventArgs e)
@@ -44,6 +45,27 @@ namespace ProyectoFinalControlGastos
         private void General_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoadName()
+        {
+            if (Program.logedUser.NickName == string.Empty)
+            {
+                labelName.Text = Program.logedUser.Name;
+            }
+            else {
+                labelName.Text = Program.logedUser.NickName;
+            }
+        }
+
+        private void General_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

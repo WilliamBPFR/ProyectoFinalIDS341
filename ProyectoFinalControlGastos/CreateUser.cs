@@ -72,7 +72,7 @@ namespace ProyectoFinalControlGastos
                 Name = textBoxName.Text,
                 LastName = textBoxLastName.Text,
                 NickName = textBoxNickName.Text,
-                Ocupation = textBoxOcupation.Text,
+                Ocupation = comboBoxOcupations.Text,
                 password = textBoxPassword.Text,
                 Monedas = comboBoxCoin.Text
             };
@@ -126,10 +126,53 @@ namespace ProyectoFinalControlGastos
                         MessageBox.Show("Ha dejado elementos necesarios vacíos.\nRecuerde que solo el Nickname y la ocupación pueden estar vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return false;
                     }
-                }      
+                }
             } 
             return true;
             }
+
+        private void AddNewCategoryButtom_Click(object sender, EventArgs e)
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\ocupations.json";
+            var ocupationList = new List<string>();
+            string newocupation; 
+
+            if (File.Exists(pathFile)) {
+                json = File.ReadAllText(pathFile);
+                ocupationList = JsonConvert.DeserializeObject<List<string>>(json);
+            }
+
+            newocupation = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva ocupación.\nLuego pulse Aceptar para guardarla.", "Agregar Ocupación");
+
+            if (newocupation == string.Empty || newocupation == null) {
+                return;
+            }
+
+            foreach (var item in ocupationList)
+            {
+                if (item.ToString().ToLower() == newocupation.ToLower())
+                {
+                    MessageBox.Show("La ocupación ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            ocupationList.Add(newocupation);
+
+            json = JsonConvert.SerializeObject(ocupationList);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+
+            comboBoxOcupations.DataSource = ocupationList;
+
+                MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void comboBoxOcupations_Enter(object sender, EventArgs e)
+        {
+
         }
     }
+}
  
