@@ -63,6 +63,16 @@ namespace ProyectoFinalControlGastos.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _120826__1_ {
+            get {
+                object obj = ResourceManager.GetObject("120826 (1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _9f05cad0bda79ad079c0dd05832a4a27 {
             get {
                 object obj = ResourceManager.GetObject("9f05cad0bda79ad079c0dd05832a4a27", resourceCulture);

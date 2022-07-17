@@ -48,7 +48,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -146,7 +146,7 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox);
             this.groupBox1.Location = new System.Drawing.Point(15, 83);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(572, 172);
@@ -271,13 +271,14 @@
             this.label3.TabIndex = 26;
             this.label3.Text = "Nombre:";
             // 
-            // textBox1
+            // textBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(91, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 26);
-            this.textBox1.TabIndex = 25;
+            this.textBox.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox.Location = new System.Drawing.Point(91, 37);
+            this.textBox.Name = "textBox";
+            this.textBox.Size = new System.Drawing.Size(163, 26);
+            this.textBox.TabIndex = 25;
+            this.textBox.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // label1
             // 
@@ -350,7 +351,7 @@
         private Label label4;
         private TextBox textBox2;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox textBox;
         private Label label1;
         private Button AddNewOcupationButton;
         private Button button5;

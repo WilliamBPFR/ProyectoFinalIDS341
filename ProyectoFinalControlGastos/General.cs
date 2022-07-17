@@ -41,6 +41,7 @@ namespace ProyectoFinalControlGastos
         {
             var filtro = new Filtler();
             filtro.Show();
+            Hide();
         }
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)
