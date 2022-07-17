@@ -48,7 +48,9 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SaveRecord();
+            if (Correct()) {
+                SaveRecord();
+            }
         }
 
         private void SaveRecord()
@@ -76,5 +78,26 @@ namespace ProyectoFinalControlGastos
                 Monedas = comboBoxCoin.Text
             };
         }
+
+
+        private bool Correct()
+        {
+            if (textBoxPassword.Text != textBoxRepeatPassword.Text)
+            {
+                MessageBox.Show("La contraseñas ingresadas no coinciden.\nPor Favor, escribir contraseñas que coincidan", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else {
+                foreach (Control item in groupBoxCreateUser.Controls)
+                {
+                    if ((item.Text == string.Empty || item.Text is null) && item.Name is not "textBoxOcupation" && item.Name is not "textBoxNickName") {
+                        MessageBox.Show("Ha dejado elementos necesarios vacíos.\nRecuerde que solo el Nickname y la ocupación pueden estar vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }      
+            } 
+            return true;
+            }
+        }
     }
-}
+ 
