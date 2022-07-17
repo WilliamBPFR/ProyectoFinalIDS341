@@ -130,7 +130,7 @@
             // 
             // buttonCreateUser
             // 
-            this.buttonCreateUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.buttonCreateUser.BackColor = System.Drawing.Color.Yellow;
             this.buttonCreateUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.buttonCreateUser.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonCreateUser.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);

@@ -39,7 +39,8 @@ namespace ProyectoFinalControlGastos
 
         private void GeneralView_Click(object sender, EventArgs e)
         {
-
+            var filtro = new Filtler();
+            filtro.Show();
         }
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)
