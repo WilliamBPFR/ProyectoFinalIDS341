@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using ProyectoFinalControlGastos.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,7 +48,69 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (Correct()) {
+                SaveRecord();
+            }
+        }
 
+        private void SaveRecord()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}users.json";
+            var usersList = new List<Users>();
+            var user = new Users();
+
+            if (File.Exists(pathFile)) {
+                
+                json = File.ReadAllText(pathFile);
+                usersList = JsonConvert.DeserializeObject<List<Users>>(json);
+            }
+
+            user = new Users
+            {
+                Id = 1100000 + (usersList.Count),
+                Email = textBoxEmail.Text,
+                Name = textBoxName.Text,
+                LastName = textBoxLastName.Text,
+                NickName = textBoxNickName.Text,
+                Ocupation = textBoxOcupation.Text,
+                password = textBoxPassword.Text,
+                Monedas = comboBoxCoin.Text
+            };
+
+            int validar = usersList.Count(x => x.Email == user.Email);
+            if (validar != 0) {
+                MessageBox.Show("El email ingresado ya está tomado. Ingrese otro email válido", "Email No Válido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            usersList.Add(user);
+
+            json = JsonConvert.SerializeObject(json);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+        }
+
+
+        private bool Correct()
+        {
+            if (textBoxPassword.Text != textBoxRepeatPassword.Text)
+            {
+                MessageBox.Show("La contraseñas ingresadas no coinciden.\nPor Favor, escribir contraseñas que coincidan", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            else {
+                foreach (Control item in groupBoxCreateUser.Controls)
+                {
+                    if ((item.Text == string.Empty || item.Text is null) && item.Name is not "textBoxOcupation" && item.Name is not "textBoxNickName") {
+                        MessageBox.Show("Ha dejado elementos necesarios vacíos.\nRecuerde que solo el Nickname y la ocupación pueden estar vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }      
+            } 
+            return true;
+            }
         }
     }
-}
+ 
