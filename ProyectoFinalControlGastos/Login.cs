@@ -51,6 +51,8 @@ namespace ProyectoFinalControlGastos
                 return;
             }
 
+            Program.logedUser = user;
+
             var General = new General();
             General.Show();
             Hide();
