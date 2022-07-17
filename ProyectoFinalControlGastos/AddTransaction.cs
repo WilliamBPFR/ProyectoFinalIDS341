@@ -13,6 +13,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class AddTransaction : Form
     {
+        public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
         public AddTransaction()
         {
             InitializeComponent();
@@ -20,9 +21,24 @@ namespace ProyectoFinalControlGastos
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {   
-            AddCategories.Items.Add(AddNewCategory.Text);
-            
+        {
+            InitializeCategories();
+        }
+
+        private void InitializeCategories()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\categories.json";
+            var categoriesList = new List<string>();
+            string category;
+
+            if (File.Exists(pathFile))
+            {
+
+            }
+            else
+            {
+            }
         }
 
         private void AddCategories_SelectedIndexChanged(object sender, EventArgs e)
