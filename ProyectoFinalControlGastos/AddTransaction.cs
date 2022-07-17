@@ -19,8 +19,21 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click(object sender, EventArgs e)
         {
-            AddNewCategory.Enabled = true;
-            AddNewCategory.Text = null;
+            
+            AddCategories.Items.Add(AddNewCategory.Text);
+            
+        }
+
+        private void AddCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AddCancel_Click(object sender, EventArgs e)
+        {
+            var General = new General();
+            General.Show();
+            Hide();
         }
     }
 }
