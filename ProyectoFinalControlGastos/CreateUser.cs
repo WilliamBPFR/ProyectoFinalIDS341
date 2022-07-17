@@ -223,6 +223,8 @@ namespace ProyectoFinalControlGastos
                 }
                 monedaList.Add(newmoneda);
 
+                MessageBox.Show("La moneda ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
                 json = JsonConvert.SerializeObject(monedaList);
                 var save = new StreamWriter(pathFile, false, Encoding.UTF8);
                 save.Write(json);
@@ -230,8 +232,8 @@ namespace ProyectoFinalControlGastos
 
                 comboBoxOcupations.DataSource = monedaList;
 
-                MessageBox.Show("La moneda ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

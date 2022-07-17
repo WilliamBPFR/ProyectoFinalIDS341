@@ -35,7 +35,7 @@
             this.AddDescriptionText = new System.Windows.Forms.TextBox();
             this.AddDescription = new System.Windows.Forms.Label();
             this.AddCategory = new System.Windows.Forms.Label();
-            this.AddCategories = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategories = new System.Windows.Forms.ComboBox();
             this.AddNewCategoryButtom = new System.Windows.Forms.Button();
             this.AddNewCategory = new System.Windows.Forms.TextBox();
             this.AddNameText = new System.Windows.Forms.TextBox();
@@ -137,23 +137,23 @@
             this.AddCategory.TabIndex = 6;
             this.AddCategory.Text = "Categoria de Transacción";
             // 
-            // AddCategories
+            // comboBoxCategories
             // 
-            this.AddCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.AddCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.AddCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddCategories.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddCategories.FormattingEnabled = true;
-            this.AddCategories.Items.AddRange(new object[] {
+            this.comboBoxCategories.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.comboBoxCategories.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxCategories.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.comboBoxCategories.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBoxCategories.FormattingEnabled = true;
+            this.comboBoxCategories.Items.AddRange(new object[] {
             "Comida",
             "Transporte",
             "Entretenimiento",
             "Salud"});
-            this.AddCategories.Location = new System.Drawing.Point(327, 64);
-            this.AddCategories.Name = "AddCategories";
-            this.AddCategories.Size = new System.Drawing.Size(197, 23);
-            this.AddCategories.TabIndex = 7;
-            this.AddCategories.SelectedIndexChanged += new System.EventHandler(this.AddCategories_SelectedIndexChanged);
+            this.comboBoxCategories.Location = new System.Drawing.Point(327, 64);
+            this.comboBoxCategories.Name = "comboBoxCategories";
+            this.comboBoxCategories.Size = new System.Drawing.Size(197, 23);
+            this.comboBoxCategories.TabIndex = 7;
+            this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.AddCategories_SelectedIndexChanged);
             // 
             // AddNewCategoryButtom
             // 
@@ -177,6 +177,7 @@
             this.AddNewCategory.Size = new System.Drawing.Size(167, 21);
             this.AddNewCategory.TabIndex = 10;
             this.AddNewCategory.Text = "Añadir nueva categoria (opcional)";
+            this.AddNewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNewCategory_MouseClick);
             // 
             // AddNameText
             // 
@@ -296,7 +297,7 @@
             this.Controls.Add(this.AddName);
             this.Controls.Add(this.AddNewCategory);
             this.Controls.Add(this.AddNewCategoryButtom);
-            this.Controls.Add(this.AddCategories);
+            this.Controls.Add(this.comboBoxCategories);
             this.Controls.Add(this.AddCategory);
             this.Controls.Add(this.AddDescriptionText);
             this.Controls.Add(this.AddDescription);
@@ -322,7 +323,7 @@
         private TextBox AddDescriptionText;
         private Label AddDescription;
         private Label AddCategory;
-        private ComboBox AddCategories;
+        private ComboBox comboBoxCategories;
         private Button AddNewCategoryButtom;
         private TextBox AddNewCategory;
         private TextBox AddNameText;

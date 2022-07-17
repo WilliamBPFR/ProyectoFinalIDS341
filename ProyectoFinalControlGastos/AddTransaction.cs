@@ -18,28 +18,62 @@ namespace ProyectoFinalControlGastos
         {
             InitializeComponent();
             InicializeMonedas();
+            InitializeCategories(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            InitializeCategories();
+            if (AddNewCategory.Text != "Añadir nueva categoria (opcional)") {
+                InitializeCategories(true);
+            }
         }
 
-        private void InitializeCategories()
+        private void InitializeCategories(bool adding)
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\categories.json";
             var categoriesList = new List<string>();
-            string category;
+            string newcategory;
 
             if (File.Exists(pathFile))
             {
-
+                json = File.ReadAllText(pathFile);
+                categoriesList = JsonConvert.DeserializeObject<List<string>>(json);
+                comboBoxCategories.DataSource = categoriesList;
             }
             else
             {
+                categoriesList = TransCategories;
+                comboBoxCategories.DataSource = categoriesList;
             }
+
+            if (adding) {
+
+                if (AddNewCategory.Text == string.Empty) {
+                    MessageBox.Show("No puede agregar una categoría vacía.\nRecuerde que debe llenar el campo y luego presionar el botón de '+'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                newcategory = AddNewCategory.Text;
+
+                foreach (var item in categoriesList)
+                {
+                    if (item == newcategory) {
+                        MessageBox.Show("La categoría existe.\nTrate de revisar bien las opciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                categoriesList.Add(newcategory);
+                MessageBox.Show("La categoría ha sido agregada", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AddNewCategory.Text = "Añadir nueva categoria (opcional)";
+            }
+
+              json = JsonConvert.SerializeObject(categoriesList);
+              var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+              save.Write(json);
+              save.Close();
+            comboBoxCategories.DataSource = categoriesList;
         }
+        
 
         private void AddCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -72,6 +106,11 @@ namespace ProyectoFinalControlGastos
         private void AddTransaction_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddNewCategory_MouseClick(object sender, MouseEventArgs e)
+        {
+            AddNewCategory.Text = string.Empty;
         }
     }
 }
