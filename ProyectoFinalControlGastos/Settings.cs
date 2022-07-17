@@ -15,6 +15,12 @@ namespace ProyectoFinalControlGastos
         public Settings()
         {
             InitializeComponent();
+            InitializeDatos();
+        }
+
+        private void InitializeDatos()
+        {
+         
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,6 +39,11 @@ namespace ProyectoFinalControlGastos
                     return;
                 }
             }
+        }
+
+        private void Settings_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

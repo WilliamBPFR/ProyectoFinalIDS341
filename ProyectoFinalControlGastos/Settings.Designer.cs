@@ -321,6 +321,7 @@
             this.Controls.Add(this.label2);
             this.Name = "Settings";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Settings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
