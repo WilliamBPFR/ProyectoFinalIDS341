@@ -13,6 +13,8 @@ namespace ProyectoFinalControlGastos
 {
     public partial class AddTransaction : Form
     {
+        List<Transactions> TransactionList = new List<Transactions>();
+
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
         public AddTransaction()
         {
@@ -105,6 +107,8 @@ namespace ProyectoFinalControlGastos
                 Date = AddDateTimer.Value,
                 Method = AddPagos.Text,
             };
+
+            TransactionList.Add(Transaction);
         }
 
             private void InicializeMonedas()
