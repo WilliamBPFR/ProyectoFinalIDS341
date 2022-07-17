@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using ProyectoFinalControlGastos.Models;
+
 namespace ProyectoFinalControlGastos
 {
     public partial class Login : Form
@@ -24,6 +27,31 @@ namespace ProyectoFinalControlGastos
             var General = new General();
             General.Show();
             Hide();
+
+            LookRecord();
+        }
+
+        private void LookRecord()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\users.json";
+            var userList = new List<Users>();
+            var user = new Users();
+
+            if (File.Exists(pathFile)) {
+                json = File.ReadAllText(pathFile);
+                userList = JsonConvert.DeserializeObject<List<Users>>(json);
+            };
+
+            user = userList.FirstOrDefault(x => x.Email == textBoxEmail.Text);
+
+            if (user == null) {
+                MessageBox.Show("El usuario Ingresado no existe.\nPor favor, crear un usuario o introducir un email válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (user.password != textBoxPassword.Text) { 
+            }
         }
     }
 }
