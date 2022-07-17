@@ -91,24 +91,44 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-            Add();
+            Add(true);
         }
 
-        private void Add()
+        private void Add(bool adding)
         {
-            var Transaction = new Transactions()
-            {
-                Id = Guid.NewGuid(),
-                Name = AddNameText.Text,
-                Coin = comboBoxCoin.Text,
-                Amount = float.Parse(AddAmountText.Text),
-                Description = AddDescriptionText.Text,
-                Category = comboBoxCategories.Text,
-                Date = AddDateTimer.Value,
-                Method = AddPagos.Text,
-            };
+            var json = string.Empty;
+            var TransactionsList = new List<Transactions>();
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
 
-            TransactionList.Add(Transaction);
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile, Encoding.UTF8);
+                TransactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
+            }
+
+            var Transaction1 = new Transactions();
+            if (adding)
+            {
+                Transaction1 = new Transactions
+                {
+                    Id = Program.logedUser.Id,
+                    Name = AddNameText.Text,
+                    Coin = comboBoxCoin.Text,
+                    Amount = float.Parse(AddAmountText.Text),
+                    Description = AddDescriptionText.Text,
+                    Category = comboBoxCategories.Text,
+                    Date = AddDateTimer.Value,
+                    Method = AddPagos.Text,
+                };
+
+                TransactionsList.Add(Transaction1);
+                                            
+            }
+            json = JsonConvert.SerializeObject(TransactionsList);
+
+            var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
+            sw.Write(json);
+            sw.Close();
         }
 
             private void InicializeMonedas()
@@ -139,13 +159,73 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (AddNewCategory.Text != "Añadir nuevo metodo (opcional)")
+            if (addNewMethod.Text != "Añadir nuevo metodo (opcional)")
             {
-                InitializeCategories(true);
+                MetodosDePago(true);
             }
+
+        }
+        private void MetodosDePago(bool adding)
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\MetodosDePago.json";
+            var MetodosDePago = new List<string>();
+            string newmethod;
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile);
+                MetodosDePago = JsonConvert.DeserializeObject<List<string>>(json);
+                AddPagos.DataSource = MetodosDePago;
+            }
+            else
+            {
+                MetodosDePago = TransCategories;
+                AddPagos.DataSource = MetodosDePago;
+            }
+
+            if (adding)
+            {
+
+                if (addNewMethod.Text == string.Empty)
+                {
+                    MessageBox.Show("No puede agregar un método vacío.\nRecuerde que debe llenar el campo y luego presionar el botón de '+'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                newmethod = addNewMethod.Text;
+
+                foreach (var item in MetodosDePago)
+                {
+                    if (item == newmethod)
+                    {
+                        MessageBox.Show("El método existe.\nTrate de revisar bien las opciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                MetodosDePago.Add(newmethod);
+                MessageBox.Show("El método ha sido agregado", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                addNewMethod.Text = "Añadir nuevo método (opcional)";
+            }
+
+            json = JsonConvert.SerializeObject(MetodosDePago);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+            AddPagos.DataSource = MetodosDePago;
         }
 
+
         private void AddNewCategory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddNameText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddPagos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

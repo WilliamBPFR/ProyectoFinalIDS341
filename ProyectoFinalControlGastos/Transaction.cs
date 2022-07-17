@@ -8,7 +8,7 @@ namespace ProyectoFinalControlGastos
 {
     public class Transactions
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Coin { get; set; }
         public float Amount { get; set; }
