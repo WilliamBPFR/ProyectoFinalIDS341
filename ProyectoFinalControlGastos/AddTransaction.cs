@@ -112,5 +112,23 @@ namespace ProyectoFinalControlGastos
         {
             AddNewCategory.Text = string.Empty;
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (AddNewCategory.Text != "Añadir nuevo metodo (opcional)")
+            {
+                InitializeCategories(true);
+            }
+        }
+
+        private void AddNewCategory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
