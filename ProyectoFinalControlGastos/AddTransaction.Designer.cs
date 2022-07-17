@@ -46,6 +46,8 @@
             this.AddPago = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCoin = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddCancel
@@ -88,7 +90,7 @@
             this.AddAmount.BackColor = System.Drawing.Color.Transparent;
             this.AddAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddAmount.ForeColor = System.Drawing.Color.Gold;
-            this.AddAmount.Location = new System.Drawing.Point(105, 104);
+            this.AddAmount.Location = new System.Drawing.Point(115, 102);
             this.AddAmount.Name = "AddAmount";
             this.AddAmount.Size = new System.Drawing.Size(50, 19);
             this.AddAmount.TabIndex = 2;
@@ -98,9 +100,9 @@
             // 
             this.AddAmountText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.AddAmountText.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddAmountText.Location = new System.Drawing.Point(106, 125);
+            this.AddAmountText.Location = new System.Drawing.Point(115, 124);
             this.AddAmountText.Name = "AddAmountText";
-            this.AddAmountText.Size = new System.Drawing.Size(100, 21);
+            this.AddAmountText.Size = new System.Drawing.Size(95, 21);
             this.AddAmountText.TabIndex = 3;
             // 
             // AddDescriptionText
@@ -178,6 +180,7 @@
             this.AddNewCategory.TabIndex = 10;
             this.AddNewCategory.Text = "Añadir nueva categoria (opcional)";
             this.AddNewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNewCategory_MouseClick);
+            this.AddNewCategory.TextChanged += new System.EventHandler(this.AddNewCategory_TextChanged);
             // 
             // AddNameText
             // 
@@ -271,15 +274,41 @@
             this.comboBoxCoin.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxCoin.FormattingEnabled = true;
             this.comboBoxCoin.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta de Debito",
-            "Tarjeta de Credito",
-            "Transferencia",
-            "Paypal"});
+            "€ EUR",
+            "$ USD",
+            "$ DOP",
+            "$ MXN",
+            "Sol",
+            "¥ CNY",
+            "$ RUB"});
             this.comboBoxCoin.Location = new System.Drawing.Point(28, 122);
             this.comboBoxCoin.Name = "comboBoxCoin";
             this.comboBoxCoin.Size = new System.Drawing.Size(71, 23);
             this.comboBoxCoin.TabIndex = 18;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBox1.Location = new System.Drawing.Point(327, 277);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(167, 21);
+            this.textBox1.TabIndex = 20;
+            this.textBox1.Text = "Añadir nuevo metodo (opcional)";
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.LimeGreen;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button1.Location = new System.Drawing.Point(500, 277);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 21);
+            this.button1.TabIndex = 19;
+            this.button1.Text = "+";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // AddTransaction
             // 
@@ -287,6 +316,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(587, 483);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBoxCoin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddPagos);
@@ -334,5 +365,7 @@
         private Label AddPago;
         private Label label1;
         private ComboBox comboBoxCoin;
+        private TextBox textBox1;
+        private Button button1;
     }
 }
