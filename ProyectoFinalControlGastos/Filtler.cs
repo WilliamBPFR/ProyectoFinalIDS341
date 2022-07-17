@@ -12,6 +12,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class Filtler : Form
     {
+        public bool Closing { get; set; } = true;
         public Filtler()
         {
             InitializeComponent();
@@ -50,14 +51,17 @@ namespace ProyectoFinalControlGastos
                 if (item is General)
                 {
                     item.Show();
-                    Close();
+                    Closing = false;
                 }
             }
+            Close();
         }
 
         private void Filtler_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Cerrar();
+            if (Closing) {
+                Cerrar();
+            }
         }
     }
 }

@@ -34,14 +34,14 @@ namespace ProyectoFinalControlGastos
         {
             var Add = new AddTransaction();
             Add.Show();
-            Close();
+            Hide();
         }
 
         private void GeneralView_Click(object sender, EventArgs e)
         {
             var filtro = new Filtler();
             filtro.Show();
-            Close();
+            Hide();
         }
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)
