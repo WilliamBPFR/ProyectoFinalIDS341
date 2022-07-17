@@ -77,6 +77,19 @@ namespace ProyectoFinalControlGastos
                 password = textBoxPassword.Text,
                 Monedas = comboBoxCoin.Text
             };
+
+            int validar = usersList.Count(x => x.Email == user.Email);
+            if (validar != 0) {
+                MessageBox.Show("El email ingresado ya está tomado. Ingrese otro email válido", "Email No Válido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            usersList.Add(user);
+
+            json = JsonConvert.SerializeObject(json);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
         }
 
 
