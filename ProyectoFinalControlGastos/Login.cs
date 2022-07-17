@@ -24,10 +24,6 @@ namespace ProyectoFinalControlGastos
 
         private void buttonAccess_Click(object sender, EventArgs e)
         {
-            var General = new General();
-            General.Show();
-            Hide();
-
             LookRecord();
         }
 
@@ -43,15 +39,22 @@ namespace ProyectoFinalControlGastos
                 userList = JsonConvert.DeserializeObject<List<Users>>(json);
             };
 
-            user = userList.FirstOrDefault(x => x.Email == textBoxEmail.Text);
-
-            if (user == null) {
+            if (userList.Count(x => x.Email == textBoxEmail.Text) == 0) {
                 MessageBox.Show("El usuario Ingresado no existe.\nPor favor, crear un usuario o introducir un email válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (user.password != textBoxPassword.Text) { 
+            user = userList.FirstOrDefault(x => x.Email == textBoxEmail.Text);
+
+            if (user.password != textBoxPassword.Text) {
+                MessageBox.Show("La contraseña ingresada no es correcta.\nPor favor, introducir la contraseña correcta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
+
+            var General = new General();
+            General.Show();
+            Hide();
+
         }
     }
 }

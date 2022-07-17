@@ -68,7 +68,6 @@ namespace ProyectoFinalControlGastos
 
             user = new Users
             {
-                Id = 1100000 + (usersList.Count),
                 Email = textBoxEmail.Text,
                 Name = textBoxName.Text,
                 LastName = textBoxLastName.Text,
@@ -78,6 +77,14 @@ namespace ProyectoFinalControlGastos
                 Monedas = comboBoxCoin.Text
             };
 
+            if (usersList is null)
+            {
+                user.Id = 1100000;
+            }
+            else { 
+                user.Id = 1100000 + usersList.Count;
+            }
+
             int validar = usersList.Count(x => x.Email == user.Email);
             if (validar != 0) {
                 MessageBox.Show("El email ingresado ya está tomado. Ingrese otro email válido", "Email No Válido", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -86,12 +93,24 @@ namespace ProyectoFinalControlGastos
 
             usersList.Add(user);
 
-            json = JsonConvert.SerializeObject(json);
+            json = JsonConvert.SerializeObject(usersList);
             var save = new StreamWriter(pathFile, false, Encoding.UTF8);
             save.Write(json);
             save.Close();
+
+            MessageBox.Show("El ususario ha sido creadoe exitosamente", "!Craedo!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Clear();
         }
 
+        public void Clear() {
+
+            foreach (Control item in groupBoxCreateUser.Controls)
+            {
+                if (item is TextBox || item is ComboBox) {
+                    item.Text = string.Empty;
+                }
+            }
+        }
 
         private bool Correct()
         {
