@@ -89,10 +89,25 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-
+            Add();
         }
 
-        private void InicializeMonedas()
+        private void Add()
+        {
+            var Transaction = new Transactions()
+            {
+                Id = Guid.NewGuid(),
+                Name = AddNameText.Text,
+                Coin = comboBoxCoin.Text,
+                Amount = float.Parse(AddAmountText.Text),
+                Description = AddDescriptionText.Text,
+                Category = comboBoxCategories.Text,
+                Date = AddDateTimer.Value,
+                Method = AddPagos.Text,
+            };
+        }
+
+            private void InicializeMonedas()
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
