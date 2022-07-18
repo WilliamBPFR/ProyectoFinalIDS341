@@ -39,9 +39,15 @@ namespace ProyectoFinalControlGastos
 
         private void GeneralView_Click(object sender, EventArgs e)
         {
-            var filtro = new Filtler();
-            filtro.Show();
-            Hide();
+            if (File.Exists($"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json"))
+            {
+                var filtro = new Filtler();
+                filtro.Show();
+                Hide();
+            }
+            else {
+                MessageBox.Show("No ha realizado ninguna transacción. Por favor realice una y vuelva a este apartado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)

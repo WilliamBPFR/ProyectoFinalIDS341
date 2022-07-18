@@ -38,18 +38,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
+            this.comboBoxMonedas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.comboBoxMetodos = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonFiltro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -157,6 +157,7 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
+            "Sin Filtro",
             "A a Z",
             "Z a A"});
             this.comboBox1.Location = new System.Drawing.Point(24, 119);
@@ -164,28 +165,28 @@
             this.comboBox1.Size = new System.Drawing.Size(110, 23);
             this.comboBox1.TabIndex = 15;
             // 
-            // comboBox2
+            // comboBoxCategorias
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.comboBoxCategorias.FormattingEnabled = true;
+            this.comboBoxCategorias.Items.AddRange(new object[] {
             "A a Z",
             "Z a A"});
-            this.comboBox2.Location = new System.Drawing.Point(159, 119);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(110, 23);
-            this.comboBox2.TabIndex = 16;
+            this.comboBoxCategorias.Location = new System.Drawing.Point(159, 119);
+            this.comboBoxCategorias.Name = "comboBoxCategorias";
+            this.comboBoxCategorias.Size = new System.Drawing.Size(110, 23);
+            this.comboBoxCategorias.TabIndex = 16;
             // 
-            // comboBox3
+            // comboBoxMonedas
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
+            this.comboBoxMonedas.FormattingEnabled = true;
+            this.comboBoxMonedas.Items.AddRange(new object[] {
             "A a Z",
             "Z a A"});
-            this.comboBox3.Location = new System.Drawing.Point(297, 119);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(110, 23);
-            this.comboBox3.TabIndex = 17;
-            this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBoxMonedas.Location = new System.Drawing.Point(297, 119);
+            this.comboBoxMonedas.Name = "comboBoxMonedas";
+            this.comboBoxMonedas.Size = new System.Drawing.Size(110, 23);
+            this.comboBoxMonedas.TabIndex = 17;
+            this.comboBoxMonedas.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -225,16 +226,16 @@
             this.textBox2.Size = new System.Drawing.Size(59, 26);
             this.textBox2.TabIndex = 21;
             // 
-            // comboBox4
+            // comboBoxMetodos
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.comboBoxMetodos.FormattingEnabled = true;
+            this.comboBoxMetodos.Items.AddRange(new object[] {
             "A a Z",
             "Z a A"});
-            this.comboBox4.Location = new System.Drawing.Point(429, 119);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(164, 23);
-            this.comboBox4.TabIndex = 22;
+            this.comboBoxMetodos.Location = new System.Drawing.Point(429, 119);
+            this.comboBoxMetodos.Name = "comboBoxMetodos";
+            this.comboBoxMetodos.Size = new System.Drawing.Size(164, 23);
+            this.comboBoxMetodos.TabIndex = 22;
             // 
             // label11
             // 
@@ -284,22 +285,23 @@
             this.dateTimePicker2.TabIndex = 28;
             this.dateTimePicker2.Value = new System.DateTime(2022, 7, 17, 0, 0, 0, 0);
             // 
-            // button1
+            // buttonFiltro
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::ProyectoFinalControlGastos.Properties.Resources.image_processing20210207_6297_at8381__1_;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(935, 116);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 56);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "Filtrar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonFiltro.BackColor = System.Drawing.Color.Red;
+            this.buttonFiltro.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonFiltro.Font = new System.Drawing.Font("Times New Roman", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.buttonFiltro.ForeColor = System.Drawing.Color.White;
+            this.buttonFiltro.Image = global::ProyectoFinalControlGastos.Properties.Resources.image_processing20210207_6297_at8381__1_;
+            this.buttonFiltro.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonFiltro.Location = new System.Drawing.Point(935, 116);
+            this.buttonFiltro.Name = "buttonFiltro";
+            this.buttonFiltro.Size = new System.Drawing.Size(111, 56);
+            this.buttonFiltro.TabIndex = 29;
+            this.buttonFiltro.Text = "Filtrar";
+            this.buttonFiltro.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonFiltro.UseVisualStyleBackColor = false;
+            this.buttonFiltro.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -324,18 +326,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1058, 450);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonFiltro);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBox4);
+            this.Controls.Add(this.comboBoxMetodos);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBoxMonedas);
+            this.Controls.Add(this.comboBoxCategorias);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -368,18 +370,18 @@
         private Label label8;
         private Label label9;
         private ComboBox comboBox1;
-        private ComboBox comboBox2;
-        private ComboBox comboBox3;
+        private ComboBox comboBoxCategorias;
+        private ComboBox comboBoxMonedas;
         private Label label6;
         private Label label10;
         private TextBox textBox1;
         private TextBox textBox2;
-        private ComboBox comboBox4;
+        private ComboBox comboBoxMetodos;
         private Label label11;
         private Label label12;
         private DateTimePicker dateTimePicker1;
         private DateTimePicker dateTimePicker2;
-        private Button button1;
+        private Button buttonFiltro;
         private Button button2;
     }
 }

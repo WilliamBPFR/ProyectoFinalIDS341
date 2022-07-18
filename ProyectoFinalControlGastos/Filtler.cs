@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,6 +17,45 @@ namespace ProyectoFinalControlGastos
         public Filtler()
         {
             InitializeComponent();
+            InitializeMethodsofPayments();
+            InitializeMonedas();
+            InitializeCategorias();
+        }
+
+        private void InitializeCategorias()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\categories.json";
+            var categoriesList = new List<string>();
+
+            json = File.ReadAllText(pathFile);
+            categoriesList = JsonConvert.DeserializeObject<List<string>>(json);
+
+            comboBoxCategorias.DataSource = categoriesList;
+        }
+
+        private void InitializeMonedas()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
+            var monedasList = new List<string>();
+
+            json = File.ReadAllText(pathFile);
+            monedasList = JsonConvert.DeserializeObject<List<string>>(json);
+
+            comboBoxMonedas.DataSource = monedasList;
+        }
+
+        private void InitializeMethodsofPayments()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\MetodosDePago.json";
+            var methodsList = new List<string>();
+
+            json = File.ReadAllText(pathFile);
+            methodsList = JsonConvert.DeserializeObject<List<string>>(json);
+
+            comboBoxMetodos.DataSource = methodsList;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -62,6 +102,10 @@ namespace ProyectoFinalControlGastos
             if (Closing) {
                 Cerrar();
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
         }
     }
 }

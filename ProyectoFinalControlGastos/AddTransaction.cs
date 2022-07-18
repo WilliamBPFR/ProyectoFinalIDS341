@@ -21,6 +21,7 @@ namespace ProyectoFinalControlGastos
             InitializeComponent();
             InicializeMonedas();
             InitializeCategories(false);
+            MetodosDePago(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
