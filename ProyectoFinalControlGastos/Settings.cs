@@ -14,10 +14,13 @@ namespace ProyectoFinalControlGastos
 {
     public partial class Settings : Form
     {
+
         public Settings()
         {
             InitializeComponent();
             InitializeDatos();
+            InicializeMonedas(false);
+            InicializeOcupations(false);
         }
 
         private void InitializeDatos()
@@ -58,6 +61,11 @@ namespace ProyectoFinalControlGastos
         private void btnSave_Click(object sender, EventArgs e)
         {
             SaveRecord();
+            gbPanel.Enabled = false;
+            btnChange.Enabled = true;
+            btnChangePassword.Enabled = false;
+            btnSave.Enabled = false;
+            btnCancel.Enabled = false;
         }
 
         private void SaveRecord()
@@ -114,7 +122,6 @@ namespace ProyectoFinalControlGastos
                     btnChangePassword.Enabled = true;
                     btnSave.Enabled = true;
                     btnCancel.Enabled = true;
-
             }
             else
             {
@@ -127,6 +134,122 @@ namespace ProyectoFinalControlGastos
         private void comboBox2_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            Cerrar();
+            Close();
+        }
+
+        private void Cerrar()
+        {
+            foreach  (Form item in Application.OpenForms)
+            {
+                if (item is General) {
+                    item.Show();
+                }
+            }
+        }
+
+        private void Settings_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cerrar();
+        }
+
+        private void InicializeOcupations(bool adding)
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\ocupations.json";
+            var ocupationList = new List<string>();
+            string newocupation;
+
+           
+            json = File.ReadAllText(pathFile);
+            ocupationList = JsonConvert.DeserializeObject<List<string>>(json);
+            comboBoxOcupacion.DataSource = ocupationList;
+            
+
+            if (adding)
+            {
+                newocupation = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva ocupación.\nLuego pulse Aceptar para guardarla.", "Agregar Ocupación");
+
+                if (newocupation == string.Empty || newocupation == null)
+                {
+                    return;
+                }
+
+                foreach (var item in ocupationList)
+                {
+                    if (item.ToString().ToLower() == newocupation.ToLower())
+                    {
+                        MessageBox.Show("La ocupación ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                ocupationList.Add(newocupation);
+            }
+            json = JsonConvert.SerializeObject(ocupationList);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+
+            comboBoxOcupacion.DataSource = ocupationList;
+
+            MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+
+        private void InicializeMonedas(bool adding)
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
+            var monedaList = new List<string>();
+            string newmoneda;
+
+            
+            json = File.ReadAllText(pathFile);
+            monedaList = JsonConvert.DeserializeObject<List<string>>(json);
+            comboBoxMoneda.DataSource = monedaList;
+            
+            if (adding)
+            {
+                newmoneda = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva moneda.\nLuego pulse Aceptar para guardarla.", "Agregar Moneda");
+
+                if (newmoneda == string.Empty || newmoneda == null)
+                {
+                    return;
+                }
+
+                foreach (var item in monedaList)
+                {
+                    if (item.ToString().ToLower() == newmoneda.ToLower())
+                    {
+                        MessageBox.Show("La moneda ingresada ya existe. Busquela entre las opciones dadas", "Error de Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                monedaList.Add(newmoneda);
+
+                MessageBox.Show("La moneda ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            json = JsonConvert.SerializeObject(monedaList);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+
+            comboBoxMoneda.DataSource = monedaList;
+        }
+
+        private void AddNewCoinButton_Click(object sender, EventArgs e)
+        {
+            InicializeMonedas(true);
+        }
+
+        private void AddNewOcupationButton_Click(object sender, EventArgs e)
+        {
+            InicializeOcupations(true);
         }
     }
 }

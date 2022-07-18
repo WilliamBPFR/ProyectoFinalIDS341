@@ -14,6 +14,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class CreateUser : Form
     {
+        public List <string> OList = new List<string> { "Ingeniero", "Abogado", "Enfermero"};
         public List <string> Monedas = new List<string> { "€ EUR", "$ USD", "$ DOP", "$ MXN", "Sol", "¥ CNY", "$ RUB"};
         public CreateUser()
         {
@@ -156,6 +157,10 @@ namespace ProyectoFinalControlGastos
                 ocupationList = JsonConvert.DeserializeObject<List<string>>(json);
                 comboBoxOcupations.DataSource = ocupationList;
             }
+            else {
+                ocupationList = OList;
+                comboBoxOcupations.DataSource = OList;
+            }
 
             if (adding)
             {
@@ -174,8 +179,9 @@ namespace ProyectoFinalControlGastos
                         return;
                     }
                 }
-                ocupationList.Add(newocupation);
 
+                ocupationList.Add(newocupation);
+            }
                 json = JsonConvert.SerializeObject(ocupationList);
                 var save = new StreamWriter(pathFile, false, Encoding.UTF8);
                 save.Write(json);
@@ -184,7 +190,7 @@ namespace ProyectoFinalControlGastos
                 comboBoxOcupations.DataSource = ocupationList;
 
                 MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
             }
 
         private void InicializeMonedas(bool adding) {
@@ -230,7 +236,7 @@ namespace ProyectoFinalControlGastos
                 save.Write(json);
                 save.Close();
 
-                comboBoxOcupations.DataSource = monedaList;  
+                comboBoxCoin.DataSource = monedaList;  
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -239,6 +245,16 @@ namespace ProyectoFinalControlGastos
         }
 
         private void comboBoxCoin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxOcupations_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateUser_Load(object sender, EventArgs e)
         {
 
         }

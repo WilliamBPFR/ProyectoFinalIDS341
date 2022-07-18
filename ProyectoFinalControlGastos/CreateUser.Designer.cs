@@ -138,6 +138,7 @@
             this.comboBoxOcupations.Name = "comboBoxOcupations";
             this.comboBoxOcupations.Size = new System.Drawing.Size(149, 23);
             this.comboBoxOcupations.TabIndex = 35;
+            this.comboBoxOcupations.SelectedIndexChanged += new System.EventHandler(this.comboBoxOcupations_SelectedIndexChanged);
             this.comboBoxOcupations.Enter += new System.EventHandler(this.comboBoxOcupations_Enter);
             // 
             // AddNewOcupationButton
@@ -321,6 +322,7 @@
             this.Name = "CreateUser";
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateUser_FormClosed);
+            this.Load += new System.EventHandler(this.CreateUser_Load);
             this.groupBoxCreateUser.ResumeLayout(false);
             this.groupBoxCreateUser.PerformLayout();
             this.ResumeLayout(false);

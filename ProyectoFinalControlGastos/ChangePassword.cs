@@ -35,6 +35,9 @@ namespace ProyectoFinalControlGastos
             if (condiciones())
             {
                 SaveRecord();
+                Cerrar();
+                Close();
+
             }
             
 
@@ -86,14 +89,29 @@ namespace ProyectoFinalControlGastos
             var Save = new StreamWriter(pathFile, false, Encoding.UTF8);
             Save.Write(json);
             Save.Close();
-            MessageBox.Show("CONTRASEÑA ACTUALIZADA");
+            MessageBox.Show("CONTRASEÑA ACTUALIZADA", "INFORMACIÓN", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var Form1 = new Settings();
-            Form1.Show();
+            Cerrar();
             Close();
+        }
+
+        private void Cerrar()
+        {
+           var settings = new Settings();
+            settings.Show();
+        }
+        
+        private void textBoxID_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void ChangePassword_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Cerrar();
         }
     }
 }
