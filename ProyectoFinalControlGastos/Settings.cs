@@ -23,7 +23,7 @@ namespace ProyectoFinalControlGastos
             InicializeOcupations(false);
         }
 
-        private void InitializeDatos()
+        private void InitializeDatos()//Pone los campos del usuario en cada campo
         {
            textBoxID.Text = Program.logedUser.Id.ToString();
             textBoxNombre.Text = Program.logedUser.Name;
@@ -40,7 +40,7 @@ namespace ProyectoFinalControlGastos
             
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)//Logout 
         {
             Close();
             Program.Cambio = true;
@@ -91,7 +91,6 @@ namespace ProyectoFinalControlGastos
             user = usersList.FirstOrDefault(x => x.Id.ToString() == textBoxID.Text);   
             usersList.Remove(user);
 
-            
 
             user = new Users
             {
@@ -116,7 +115,7 @@ namespace ProyectoFinalControlGastos
             MessageBox.Show("USUARIO GUARDADO");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)//Abre el form de cambiar contraseña
         {
             var ChangePassword = new ChangePassword();
             ChangePassword.Show();
@@ -124,12 +123,12 @@ namespace ProyectoFinalControlGastos
         }
 
 
-        private void btnChange_Click(object sender, EventArgs e)
+        private void btnChange_Click(object sender, EventArgs e)//Verificar Contraseña antes de poder guardar datos
         {
 
             string Password = Microsoft.VisualBasic.Interaction.InputBox("Ingrese su contraseña:", "Cambiar contraseña");
 
-            if (Password == Program.logedUser.password)
+            if (Password == Program.logedUser.password)//Si es igual activa los campos para cambiarlos
             {
                     gbPanel.Enabled = true;
                     btnChange.Enabled = false;

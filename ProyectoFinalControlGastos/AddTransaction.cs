@@ -172,7 +172,7 @@ namespace ProyectoFinalControlGastos
             btnBorrar.Enabled = true;
         }
 
-        private void Add(bool Loading)
+        private void Add(bool Loading)//Guardar las Transacciones
         {
             var json = string.Empty;
             var TransactionsList = new List<Transactions>();
@@ -180,30 +180,30 @@ namespace ProyectoFinalControlGastos
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
             var transaction = new Transactions();
 
-            if (File.Exists(pathFile))
+            if (File.Exists(pathFile))//Verificar si el Json de transacciones existe y carga los datos
             {
                 json = File.ReadAllText(pathFile, Encoding.UTF8);
                 TransactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
 
                var transList2 = TransactionsList;
 
-                for (int i = 0; i<TransactionsList.Count(); i++) { 
+                for (int i = 0; i<TransactionsList.Count(); i++) { //Cargar solo las transacciones del usuario logeado
 
-                    if(TransactionsList[i].Id != Program.logedUser.Id)
+                    if(TransactionsList[i].Id != Program.logedUser.Id)//Filtra las transacciones y separa las del usuario logeado y las demas
                     {
                         OtherUsersTransactions.Add(TransactionsList[i]);
                         transList2.Remove(TransactionsList[i]);
                     } 
                 }
-                TransactionsList = transList2;
+                TransactionsList = transList2;//ListA con las transacciones del usuario logueado
             }
 
 
-            if (!Loading)
+            if (!Loading)//Decide si se estä cargando datos o realizando alguna otra opción
             {
-                if (Adding)
+                if (Adding)//Añadiendo datos
                 {
-                    if (DeleteId != 0) {
+                    if (DeleteId != 0) {//Elimina la transaccion que se guarda cuando se está actualizando
                         TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.IDTrans == DeleteId));
                         DeleteId = 0;
                     }
@@ -222,11 +222,11 @@ namespace ProyectoFinalControlGastos
                     };
                     TransactionsList.Add(transaction);
 
-                } else if (Deleting) {
+                } else if (Deleting) {//Borrar las Transacciones
                     int idtrans = int.Parse(dgvTransaction.CurrentRow.Cells[0].Value.ToString());
                     TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.IDTrans == idtrans));
 
-                } else if (Updating && !Adding) {
+                } else if (Updating && !Adding) {//Update a las transacciones
                     int idtrans = int.Parse(dgvTransaction.CurrentRow.Cells[0].Value.ToString());
                     transaction = TransactionsList.FirstOrDefault(x => x.IDTrans == idtrans);
                     DeleteId = idtrans;
@@ -236,7 +236,7 @@ namespace ProyectoFinalControlGastos
                 MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            foreach (Transactions item in TransactionsList)
+            foreach (Transactions item in TransactionsList)//Añade las transacciones del usuario a las demás transacciones
             {
                 OtherUsersTransactions.Add(item);
             }
@@ -244,7 +244,7 @@ namespace ProyectoFinalControlGastos
 
             json = JsonConvert.SerializeObject(OtherUsersTransactions);
             
-            var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
+            var sw = new StreamWriter(pathFile, false, Encoding.UTF8)//Se guardan todas las transacciones.
             sw.Write(json);
             sw.Close();
 

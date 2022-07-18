@@ -43,15 +43,17 @@ namespace ProyectoFinalControlGastos
 
         }
 
-        private bool condiciones()
+        private bool condiciones()//Verificaciones
         {
             if(textBoxActualPassword.Text != Program.logedUser.password)
             {
-                MessageBox.Show("CONTRASEÑA ACTUAL INCORRECTA");
+                MessageBox.Show("CONTRASEÑA ACTUAL INCORRECTA", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
-            }else if(textBoxNewPassword.Text != textBoxRepeatPassword.Text)
+            }
+            
+            if(textBoxNewPassword.Text != textBoxRepeatPassword.Text)
             {
-                MessageBox.Show("CONTRASEÑAS NO COINCIDEN");
+                MessageBox.Show("CONTRASEÑAS NO COINCIDEN", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -59,7 +61,7 @@ namespace ProyectoFinalControlGastos
             
         }
 
-        private void SaveRecord()
+        private void SaveRecord()//Guardo el Usuario con la nueva contraseña
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}users.json";

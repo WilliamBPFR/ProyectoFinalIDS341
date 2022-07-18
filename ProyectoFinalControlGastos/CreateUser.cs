@@ -57,7 +57,7 @@ namespace ProyectoFinalControlGastos
             }
         }
 
-        private void SaveRecord()
+        private void SaveRecord()//Guarda los Datos en el Json
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}users.json";
@@ -81,7 +81,7 @@ namespace ProyectoFinalControlGastos
                 Monedas = comboBoxCoin.Text
             };
 
-            if (usersList is null)
+            if (usersList is null)//Comprueba si hay usuarios, si hay los suma al id inicial y si no le asigna el id inicial
             {
                 user.Id = 1100000;
             }
@@ -106,7 +106,8 @@ namespace ProyectoFinalControlGastos
             Clear();
         }
 
-        public void Clear() {
+        public void Clear()// Limpia los datos de los textbox y los comboBOx 
+        {
 
             foreach (Control item in groupBoxCreateUser.Controls)
             {
@@ -116,15 +117,15 @@ namespace ProyectoFinalControlGastos
             }
         }
 
-        private bool Correct()
+        private bool Correct()//Verificaciones antes de guardar
         {
-            if (textBoxPassword.Text != textBoxRepeatPassword.Text)
+            if (textBoxPassword.Text != textBoxRepeatPassword.Text)//Que ambas contraseñas sean iguales.
             {
                 MessageBox.Show("La contraseñas ingresadas no coinciden.\nPor Favor, escribir contraseñas que coincidan", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else {
-                foreach (Control item in groupBoxCreateUser.Controls)
+                foreach (Control item in groupBoxCreateUser.Controls)//Que los campos no esten vacios a excepcion de NickName y Ocupacion
                 {
                     if ((item.Text == string.Empty || item.Text is null) && item.Name is not "textBoxOcupation" && item.Name is not "textBoxNickName") {
                         MessageBox.Show("Ha dejado elementos necesarios vacíos.\nRecuerde que solo el Nickname y la ocupación pueden estar vacíos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -145,7 +146,7 @@ namespace ProyectoFinalControlGastos
 
         }
 
-        private void InicializeOcupations(bool adding) {
+        private void InicializeOcupations(bool adding) {//Carga y Crea las Ocupaciones
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\ocupations.json";
             var ocupationList = new List<string>();
@@ -162,7 +163,7 @@ namespace ProyectoFinalControlGastos
                 comboBoxOcupations.DataSource = OList;
             }
 
-            if (adding)
+            if (adding)// Cuando Se añade con el boton de "+"
             {
                 newocupation = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva ocupación.\nLuego pulse Aceptar para guardarla.", "Agregar Ocupación");
 
@@ -187,14 +188,12 @@ namespace ProyectoFinalControlGastos
                 var save = new StreamWriter(pathFile, false, Encoding.UTF8);
                 save.Write(json);
                 save.Close();
-
                 comboBoxOcupations.DataSource = ocupationList;
 
-                
-            
             }
 
-        private void InicializeMonedas(bool adding) {
+        private void InicializeMonedas(bool adding)//Carga y Crea las Monedas
+        {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
             var monedaList = new List<string>();
@@ -211,7 +210,7 @@ namespace ProyectoFinalControlGastos
                 comboBoxCoin.DataSource = monedaList;
             }
 
-            if (adding)
+            if (adding)// Cuando Se añade con el boton de "+"
             {
                 newmoneda = Microsoft.VisualBasic.Interaction.InputBox("Ingrese la nueva moneda.\nLuego pulse Aceptar para guardarla.", "Agregar Moneda");
 

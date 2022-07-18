@@ -78,11 +78,11 @@ namespace ProyectoFinalControlGastos
 
         }
 
-        private void LoadName()
+        private void LoadName()//Carga el Nombre y el ID del Usuario en Pantalla
         {
-            if (Program.logedUser.NickName == string.Empty)
+            if (Program.logedUser.NickName == string.Empty)//Si tiene Nickname
             {
-                labelName.Text = Program.logedUser.Name;
+                labelName.Text = Program.logedUser.Name;//Si no tiene pongo su nombre
             }
             else {
                 labelName.Text = Program.logedUser.NickName;

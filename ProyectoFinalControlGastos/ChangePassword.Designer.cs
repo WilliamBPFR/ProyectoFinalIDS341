@@ -55,10 +55,10 @@
             // textBoxActualPassword
             // 
             this.textBoxActualPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxActualPassword.Location = new System.Drawing.Point(190, 75);
+            this.textBoxActualPassword.Location = new System.Drawing.Point(169, 75);
             this.textBoxActualPassword.Name = "textBoxActualPassword";
             this.textBoxActualPassword.PasswordChar = '*';
-            this.textBoxActualPassword.Size = new System.Drawing.Size(238, 26);
+            this.textBoxActualPassword.Size = new System.Drawing.Size(259, 26);
             this.textBoxActualPassword.TabIndex = 7;
             this.textBoxActualPassword.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -87,10 +87,10 @@
             // textBoxNewPassword
             // 
             this.textBoxNewPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNewPassword.Location = new System.Drawing.Point(190, 106);
+            this.textBoxNewPassword.Location = new System.Drawing.Point(169, 106);
             this.textBoxNewPassword.Name = "textBoxNewPassword";
             this.textBoxNewPassword.PasswordChar = '*';
-            this.textBoxNewPassword.Size = new System.Drawing.Size(235, 26);
+            this.textBoxNewPassword.Size = new System.Drawing.Size(256, 26);
             this.textBoxNewPassword.TabIndex = 10;
             // 
             // label4
@@ -107,10 +107,10 @@
             // textBoxRepeatPassword
             // 
             this.textBoxRepeatPassword.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxRepeatPassword.Location = new System.Drawing.Point(262, 136);
+            this.textBoxRepeatPassword.Location = new System.Drawing.Point(228, 136);
             this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
             this.textBoxRepeatPassword.PasswordChar = '*';
-            this.textBoxRepeatPassword.Size = new System.Drawing.Size(163, 26);
+            this.textBoxRepeatPassword.Size = new System.Drawing.Size(197, 26);
             this.textBoxRepeatPassword.TabIndex = 12;
             // 
             // button4

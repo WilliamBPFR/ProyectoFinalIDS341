@@ -36,6 +36,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.textBoxID = new System.Windows.Forms.TextBox();
             this.gbPanel = new System.Windows.Forms.GroupBox();
+            this.AddNewCoinButton = new System.Windows.Forms.Button();
             this.AddNewOcupationButton = new System.Windows.Forms.Button();
             this.comboBoxOcupacion = new System.Windows.Forms.ComboBox();
             this.comboBoxMoneda = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonLogOut = new System.Windows.Forms.Button();
-            this.AddNewCoinButton = new System.Windows.Forms.Button();
             this.gbPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,6 +164,19 @@
             this.gbPanel.TabIndex = 24;
             this.gbPanel.TabStop = false;
             // 
+            // AddNewCoinButton
+            // 
+            this.AddNewCoinButton.BackColor = System.Drawing.Color.LimeGreen;
+            this.AddNewCoinButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.AddNewCoinButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.AddNewCoinButton.Location = new System.Drawing.Point(529, 128);
+            this.AddNewCoinButton.Name = "AddNewCoinButton";
+            this.AddNewCoinButton.Size = new System.Drawing.Size(24, 21);
+            this.AddNewCoinButton.TabIndex = 37;
+            this.AddNewCoinButton.Text = "+";
+            this.AddNewCoinButton.UseVisualStyleBackColor = false;
+            this.AddNewCoinButton.Click += new System.EventHandler(this.AddNewCoinButton_Click);
+            // 
             // AddNewOcupationButton
             // 
             this.AddNewOcupationButton.BackColor = System.Drawing.Color.LimeGreen;
@@ -197,7 +210,7 @@
             // comboBoxMoneda
             // 
             this.comboBoxMoneda.FormattingEnabled = true;
-            this.comboBoxMoneda.Location = new System.Drawing.Point(399, 127);
+            this.comboBoxMoneda.Location = new System.Drawing.Point(391, 127);
             this.comboBoxMoneda.Name = "comboBoxMoneda";
             this.comboBoxMoneda.Size = new System.Drawing.Size(132, 23);
             this.comboBoxMoneda.TabIndex = 35;
@@ -227,7 +240,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxEmail.Location = new System.Drawing.Point(85, 127);
+            this.textBoxEmail.Location = new System.Drawing.Point(73, 127);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(163, 26);
             this.textBoxEmail.TabIndex = 32;
@@ -257,7 +270,7 @@
             // textBoxNickname
             // 
             this.textBoxNickname.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNickname.Location = new System.Drawing.Point(113, 82);
+            this.textBoxNickname.Location = new System.Drawing.Point(104, 81);
             this.textBoxNickname.Name = "textBoxNickname";
             this.textBoxNickname.Size = new System.Drawing.Size(154, 26);
             this.textBoxNickname.TabIndex = 29;
@@ -276,7 +289,7 @@
             // textBoxApellido
             // 
             this.textBoxApellido.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxApellido.Location = new System.Drawing.Point(370, 37);
+            this.textBoxApellido.Location = new System.Drawing.Point(345, 37);
             this.textBoxApellido.Name = "textBoxApellido";
             this.textBoxApellido.Size = new System.Drawing.Size(161, 26);
             this.textBoxApellido.TabIndex = 27;
@@ -295,9 +308,9 @@
             // textBoxNombre
             // 
             this.textBoxNombre.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBoxNombre.Location = new System.Drawing.Point(104, 37);
+            this.textBoxNombre.Location = new System.Drawing.Point(93, 34);
             this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(163, 26);
+            this.textBoxNombre.Size = new System.Drawing.Size(153, 26);
             this.textBoxNombre.TabIndex = 25;
             // 
             // label1
@@ -323,19 +336,6 @@
             this.buttonLogOut.Text = "LogOut";
             this.buttonLogOut.UseVisualStyleBackColor = false;
             this.buttonLogOut.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // AddNewCoinButton
-            // 
-            this.AddNewCoinButton.BackColor = System.Drawing.Color.LimeGreen;
-            this.AddNewCoinButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddNewCoinButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.AddNewCoinButton.Location = new System.Drawing.Point(537, 128);
-            this.AddNewCoinButton.Name = "AddNewCoinButton";
-            this.AddNewCoinButton.Size = new System.Drawing.Size(24, 21);
-            this.AddNewCoinButton.TabIndex = 37;
-            this.AddNewCoinButton.Text = "+";
-            this.AddNewCoinButton.UseVisualStyleBackColor = false;
-            this.AddNewCoinButton.Click += new System.EventHandler(this.AddNewCoinButton_Click);
             // 
             // Settings
             // 
