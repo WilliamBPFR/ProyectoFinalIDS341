@@ -243,8 +243,8 @@ namespace ProyectoFinalControlGastos
 
 
             json = JsonConvert.SerializeObject(OtherUsersTransactions);
-            
-            var sw = new StreamWriter(pathFile, false, Encoding.UTF8)//Se guardan todas las transacciones.
+
+            var sw = new StreamWriter(pathFile, false, Encoding.UTF8);//Se guardan todas las transacciones.
             sw.Write(json);
             sw.Close();
 
