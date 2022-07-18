@@ -16,6 +16,7 @@ namespace ProyectoFinalControlGastos
         List<Transactions> TransactionList = new List<Transactions>();
 
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
+        public List<string> PaymentMethods = new List<string>() { "Efectivo", "Tarjeta de Debito", "Tarjeta de Credito", "Transferencia", "Paypal"};
         public AddTransaction()
         {
             InitializeComponent();
@@ -130,6 +131,7 @@ namespace ProyectoFinalControlGastos
             var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
             sw.Write(json);
             sw.Close();
+            MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InicializeMonedas()
@@ -182,7 +184,7 @@ namespace ProyectoFinalControlGastos
             }
             else
             {
-                MetodosDePago = TransCategories;
+                MetodosDePago = PaymentMethods;
                 AddPagos.DataSource = MetodosDePago;
             }
 
@@ -230,6 +232,11 @@ namespace ProyectoFinalControlGastos
         private void AddPagos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void addNewMethod_MouseClick(object sender, MouseEventArgs e)
+        {
+            addNewMethod.Text = string.Empty;
         }
     }
 }

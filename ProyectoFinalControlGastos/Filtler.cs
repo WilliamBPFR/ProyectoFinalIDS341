@@ -38,7 +38,8 @@ namespace ProyectoFinalControlGastos
             int cont = 0;
             foreach (ColumnHeader item in dgvFiltler.Columns)
             {
-                item.Name
+                item.Name = NombreColumnas[cont];
+                cont++;
             }
         }
 
