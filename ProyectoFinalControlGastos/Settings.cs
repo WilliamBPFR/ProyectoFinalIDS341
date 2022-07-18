@@ -14,7 +14,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class Settings : Form
     {
-
+        public bool OriginalEmail { get; set; } = true;
         public Settings()
         {
             InitializeComponent();
@@ -60,12 +60,13 @@ namespace ProyectoFinalControlGastos
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SaveRecord();
-            gbPanel.Enabled = false;
-            btnChange.Enabled = true;
-            btnChangePassword.Enabled = false;
-            btnSave.Enabled = false;
-            btnCancel.Enabled = false;
+                SaveRecord();
+                gbPanel.Enabled = false;
+                btnChange.Enabled = true;
+                btnChangePassword.Enabled = false;
+                btnSave.Enabled = false;
+                btnCancel.Enabled = false;
+                InitializeDatos();
         }
 
         private void SaveRecord()
@@ -78,8 +79,16 @@ namespace ProyectoFinalControlGastos
             json = File.ReadAllText(pathFile);
             usersList = JsonConvert.DeserializeObject<List<Users>>(json);
 
+            
+            if ((usersList.Count(x => x.Email == textBoxEmail.Text) >= 1))
+            {
+                MessageBox.Show("El email escogido ya está en uso", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             user = usersList.FirstOrDefault(x => x.Id.ToString() == textBoxID.Text);   
             usersList.Remove(user);
+
+            
 
             user = new Users
             {
@@ -92,6 +101,8 @@ namespace ProyectoFinalControlGastos
                 Monedas = comboBoxMoneda.Text,
                 password = Program.logedUser.password
             };
+
+            
             usersList.Add(user);
             json = JsonConvert.SerializeObject(usersList);
 

@@ -70,7 +70,11 @@ namespace ProyectoFinalControlGastos
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            DialogResult respuesta = MessageBox.Show("Desea salir de la aplicación", "Información", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (respuesta == DialogResult.OK) {
+                Application.Exit();
+            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
