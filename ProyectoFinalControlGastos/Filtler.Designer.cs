@@ -33,17 +33,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dgvFiltler = new System.Windows.Forms.DataGridView();
-            this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.comboBoxCategorias = new System.Windows.Forms.ComboBox();
             this.comboBoxMonedas = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxMonto1 = new System.Windows.Forms.TextBox();
+            this.textBoxMonto2 = new System.Windows.Forms.TextBox();
             this.comboBoxMetodos = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -51,6 +49,8 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.buttonFiltro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.radioButtonMonto = new System.Windows.Forms.RadioButton();
+            this.radioButtonFecha = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,22 +102,12 @@
             // dgvFiltler
             // 
             this.dgvFiltler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiltler.Enabled = false;
             this.dgvFiltler.Location = new System.Drawing.Point(24, 208);
             this.dgvFiltler.Name = "dgvFiltler";
             this.dgvFiltler.RowTemplate.Height = 25;
             this.dgvFiltler.Size = new System.Drawing.Size(1024, 230);
             this.dgvFiltler.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(637, 94);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(69, 22);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Monto:";
             // 
             // label7
             // 
@@ -142,32 +132,24 @@
             this.label8.Text = "Método de Pago:";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label9
+            // comboBoxName
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(723, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(195, 22);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Fecha de Transacción:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxName.FormattingEnabled = true;
+            this.comboBoxName.Items.AddRange(new object[] {
             "Sin Filtro",
             "A a Z",
             "Z a A"});
-            this.comboBox1.Location = new System.Drawing.Point(24, 119);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(110, 23);
-            this.comboBox1.TabIndex = 15;
+            this.comboBoxName.Location = new System.Drawing.Point(24, 119);
+            this.comboBoxName.Name = "comboBoxName";
+            this.comboBoxName.Size = new System.Drawing.Size(110, 23);
+            this.comboBoxName.TabIndex = 15;
             // 
             // comboBoxCategorias
             // 
+            this.comboBoxCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxCategorias.FormattingEnabled = true;
+            this.comboBoxCategorias.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboBoxCategorias.Items.AddRange(new object[] {
             "A a Z",
             "Z a A"});
@@ -178,6 +160,7 @@
             // 
             // comboBoxMonedas
             // 
+            this.comboBoxMonedas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMonedas.FormattingEnabled = true;
             this.comboBoxMonedas.Items.AddRange(new object[] {
             "A a Z",
@@ -210,24 +193,27 @@
             this.label10.TabIndex = 19;
             this.label10.Text = "A:";
             // 
-            // textBox1
+            // textBoxMonto1
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(647, 119);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 26);
-            this.textBox1.TabIndex = 20;
+            this.textBoxMonto1.Enabled = false;
+            this.textBoxMonto1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxMonto1.Location = new System.Drawing.Point(647, 119);
+            this.textBoxMonto1.Name = "textBoxMonto1";
+            this.textBoxMonto1.Size = new System.Drawing.Size(59, 26);
+            this.textBoxMonto1.TabIndex = 20;
             // 
-            // textBox2
+            // textBoxMonto2
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.textBox2.Location = new System.Drawing.Point(647, 148);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(59, 26);
-            this.textBox2.TabIndex = 21;
+            this.textBoxMonto2.Enabled = false;
+            this.textBoxMonto2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.textBoxMonto2.Location = new System.Drawing.Point(647, 148);
+            this.textBoxMonto2.Name = "textBoxMonto2";
+            this.textBoxMonto2.Size = new System.Drawing.Size(59, 26);
+            this.textBoxMonto2.TabIndex = 21;
             // 
             // comboBoxMetodos
             // 
+            this.comboBoxMetodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMetodos.FormattingEnabled = true;
             this.comboBoxMetodos.Items.AddRange(new object[] {
             "A a Z",
@@ -242,7 +228,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(725, 152);
+            this.label11.Location = new System.Drawing.Point(733, 152);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 24;
@@ -253,7 +239,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label12.ForeColor = System.Drawing.Color.White;
-            this.label12.Location = new System.Drawing.Point(723, 117);
+            this.label12.Location = new System.Drawing.Point(731, 117);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(65, 22);
             this.label12.TabIndex = 23;
@@ -262,10 +248,11 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker1.Enabled = false;
             this.dateTimePicker1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker1.Location = new System.Drawing.Point(794, 116);
+            this.dateTimePicker1.Location = new System.Drawing.Point(802, 116);
             this.dateTimePicker1.MaxDate = new System.DateTime(3515, 7, 15, 0, 0, 0, 0);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(84, 26);
@@ -275,10 +262,11 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.CalendarFont = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePicker2.Enabled = false;
             this.dateTimePicker2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePicker2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.dateTimePicker2.Location = new System.Drawing.Point(794, 152);
+            this.dateTimePicker2.Location = new System.Drawing.Point(802, 152);
             this.dateTimePicker2.MaxDate = new System.DateTime(3515, 7, 15, 0, 0, 0, 0);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(84, 26);
@@ -319,12 +307,42 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // radioButtonMonto
+            // 
+            this.radioButtonMonto.AutoSize = true;
+            this.radioButtonMonto.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonMonto.ForeColor = System.Drawing.Color.White;
+            this.radioButtonMonto.Location = new System.Drawing.Point(619, 90);
+            this.radioButtonMonto.Name = "radioButtonMonto";
+            this.radioButtonMonto.Size = new System.Drawing.Size(87, 26);
+            this.radioButtonMonto.TabIndex = 34;
+            this.radioButtonMonto.TabStop = true;
+            this.radioButtonMonto.Text = "Monto:";
+            this.radioButtonMonto.UseVisualStyleBackColor = true;
+            this.radioButtonMonto.CheckedChanged += new System.EventHandler(this.radioButtonMonto_CheckedChanged);
+            // 
+            // radioButtonFecha
+            // 
+            this.radioButtonFecha.AutoSize = true;
+            this.radioButtonFecha.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.radioButtonFecha.ForeColor = System.Drawing.Color.White;
+            this.radioButtonFecha.Location = new System.Drawing.Point(716, 92);
+            this.radioButtonFecha.Name = "radioButtonFecha";
+            this.radioButtonFecha.Size = new System.Drawing.Size(213, 26);
+            this.radioButtonFecha.TabIndex = 35;
+            this.radioButtonFecha.TabStop = true;
+            this.radioButtonFecha.Text = "Fecha de Transacción:";
+            this.radioButtonFecha.UseVisualStyleBackColor = true;
+            this.radioButtonFecha.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
             // Filtler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1058, 450);
+            this.Controls.Add(this.radioButtonFecha);
+            this.Controls.Add(this.radioButtonMonto);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonFiltro);
             this.Controls.Add(this.dateTimePicker2);
@@ -332,17 +350,15 @@
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.comboBoxMetodos);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxMonto2);
+            this.Controls.Add(this.textBoxMonto1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboBoxMonedas);
             this.Controls.Add(this.comboBoxCategorias);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.comboBoxName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.dgvFiltler);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -365,17 +381,15 @@
         private Label label3;
         private Label label4;
         private DataGridView dgvFiltler;
-        private Label label5;
         private Label label7;
         private Label label8;
-        private Label label9;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxName;
         private ComboBox comboBoxCategorias;
         private ComboBox comboBoxMonedas;
         private Label label6;
         private Label label10;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox textBoxMonto1;
+        private TextBox textBoxMonto2;
         private ComboBox comboBoxMetodos;
         private Label label11;
         private Label label12;
@@ -383,5 +397,7 @@
         private DateTimePicker dateTimePicker2;
         private Button buttonFiltro;
         private Button button2;
+        private RadioButton radioButtonMonto;
+        private RadioButton radioButtonFecha;
     }
 }
