@@ -132,7 +132,7 @@ namespace ProyectoFinalControlGastos
             sw.Close();
         }
 
-            private void InicializeMonedas()
+        private void InicializeMonedas()
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\monedas.json";
@@ -143,6 +143,7 @@ namespace ProyectoFinalControlGastos
                 comboBoxCoin.DataSource = JsonConvert.DeserializeObject<List<string>>(json);
             }
         }
+
         private void AddTransaction_Load(object sender, EventArgs e)
         {
 

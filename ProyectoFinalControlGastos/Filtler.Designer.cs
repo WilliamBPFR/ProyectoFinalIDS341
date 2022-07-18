@@ -32,7 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFiltler = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.buttonFiltro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltler)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -99,14 +99,14 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Moneda:";
             // 
-            // dataGridView1
+            // dgvFiltler
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(24, 208);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1024, 230);
-            this.dataGridView1.TabIndex = 9;
+            this.dgvFiltler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFiltler.Location = new System.Drawing.Point(24, 208);
+            this.dgvFiltler.Name = "dgvFiltler";
+            this.dgvFiltler.RowTemplate.Height = 25;
+            this.dgvFiltler.Size = new System.Drawing.Size(1024, 230);
+            this.dgvFiltler.TabIndex = 9;
             // 
             // label5
             // 
@@ -343,7 +343,7 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFiltler);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -352,7 +352,7 @@
             this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Filtler_FormClosed);
             this.Load += new System.EventHandler(this.Filtler_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFiltler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -364,7 +364,7 @@
         private Label label2;
         private Label label3;
         private Label label4;
-        private DataGridView dataGridView1;
+        private DataGridView dgvFiltler;
         private Label label5;
         private Label label7;
         private Label label8;

@@ -13,6 +13,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class Filtler : Form
     {
+        public List<string> NombreColumnas = new List<string> { "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción"};
         public bool Closing { get; set; } = true;
         public Filtler()
         {
@@ -20,6 +21,25 @@ namespace ProyectoFinalControlGastos
             InitializeMethodsofPayments();
             InitializeMonedas();
             InitializeCategorias();
+            InitializeTransactions();
+        }
+
+        private void InitializeTransactions()
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
+            var transactionsList = new List<string>();
+
+            json = File.ReadAllText(pathFile);
+            transactionsList = JsonConvert.DeserializeObject<List<string>>(json);
+
+            dgvFiltler.DataSource = transactionsList;
+
+            int cont = 0;
+            foreach (ColumnHeader item in dgvFiltler.Columns)
+            {
+                item.Name
+            }
         }
 
         private void InitializeCategorias()
