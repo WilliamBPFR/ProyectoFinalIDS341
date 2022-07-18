@@ -109,7 +109,7 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-            Add(true);  
+                Add(true);
         }
 
         private void Limpiar()
@@ -120,12 +120,18 @@ namespace ProyectoFinalControlGastos
                     item.Text = string.Empty;
                 }
             }
+
+            AddNewCategory.Text = "Añadir nueva categoria (opcional)";
+            addNewMethod.Text = "Añadir nuevo metodo (opcional)";
+            comboBoxCoin.Text = Program.logedUser.Monedas;
+
             Adding = false;
             Deleting = false;
             Updating = false;
             AddNameText.Enabled = false;
             comboBoxCoin.Enabled = false;
             AddAmountText.Enabled = false;
+            AddDescriptionText.Enabled = false;
             AddDescription.Enabled = false;
             comboBoxCategories.Enabled = false;
             AddDateTimer.Enabled = false;
@@ -168,7 +174,7 @@ namespace ProyectoFinalControlGastos
                     TransactionsList.Add(Transaction1);
                 } else if (Deleting) {
                     string nombre = dgvTransaction.CurrentRow.Cells[0].Value.ToString();
-                    TransactionList.Remove(TransactionList.FirstOrDefault(x => x.Name == nombre));
+                    TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.Name == nombre));
                 }
 
                 MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -309,6 +315,7 @@ namespace ProyectoFinalControlGastos
             Adding = true;
             AddNameText.Enabled = true;
             comboBoxCoin.Enabled = true;
+            AddDescriptionText.Enabled = true;
             AddAmountText.Enabled = true;
             AddDescription.Enabled = true;
             comboBoxCategories.Enabled = true;
@@ -318,6 +325,17 @@ namespace ProyectoFinalControlGastos
             AddAdd.Enabled = true;
             btnActualizar.Enabled = false;
             btnBorrar.Enabled = false;
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            Deleting = true;
+            Add(true);
+        }
+
+        private void comboBoxCoin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

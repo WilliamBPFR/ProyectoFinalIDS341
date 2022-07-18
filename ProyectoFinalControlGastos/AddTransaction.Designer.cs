@@ -107,6 +107,7 @@
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // btnActualizar
             // 
@@ -218,6 +219,7 @@
             this.comboBoxCoin.Name = "comboBoxCoin";
             this.comboBoxCoin.Size = new System.Drawing.Size(71, 23);
             this.comboBoxCoin.TabIndex = 36;
+            this.comboBoxCoin.SelectedIndexChanged += new System.EventHandler(this.comboBoxCoin_SelectedIndexChanged);
             // 
             // label1
             // 
