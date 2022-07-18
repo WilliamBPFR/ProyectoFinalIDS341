@@ -40,9 +40,8 @@ namespace ProyectoFinalControlGastos
             for (int i = 0; i<NombreColumnas.Count(); i++) { 
               
                 dgvFiltler.Columns[i].HeaderCell.Value = NombreColumnas[i];
-                
+                dgvFiltler.AutoResizeColumn(i);
             }
-            dgvFiltler.AutoSize.
           }   
 
         private void InitializeCategorias()
