@@ -178,7 +178,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.textBoxActualPassword);
             this.Name = "ChangePassword";
-            this.Text = "Form1";
+            this.Text = "Cambiar Contraseña";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ChangePassword_FormClosed);
             this.Load += new System.EventHandler(this.ChangePassword_Load);
             this.ResumeLayout(false);

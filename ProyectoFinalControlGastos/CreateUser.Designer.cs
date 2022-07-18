@@ -320,7 +320,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Name = "CreateUser";
-            this.Text = "Form1";
+            this.Text = "Crear Usuario";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CreateUser_FormClosed);
             this.Load += new System.EventHandler(this.CreateUser_Load);
             this.groupBoxCreateUser.ResumeLayout(false);

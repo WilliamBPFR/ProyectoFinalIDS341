@@ -364,7 +364,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "Filtler";
-            this.Text = "Form1";
+            this.Text = "Filtro de Transacciones";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Filtler_FormClosed);
             this.Load += new System.EventHandler(this.Filtler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltler)).EndInit();
