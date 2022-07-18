@@ -70,18 +70,7 @@ namespace ProyectoFinalControlGastos
 
         private void General_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CualCerrar();
-        }
-
-        private void CualCerrar()
-        {
-            if (Program.Cambio == false)
-            {
-                Application.Exit();
-            }
-            else
-            {
-            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -110,6 +99,17 @@ namespace ProyectoFinalControlGastos
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void General_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Program.Cambio == false)
+            {
+                Application.Exit();
+            }
+            else
+            {
+            }
         }
     }
 }

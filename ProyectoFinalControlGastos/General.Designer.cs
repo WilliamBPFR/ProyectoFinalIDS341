@@ -177,6 +177,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "General";
             this.Text = "Nombre de la app";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.General_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.General_FormClosed);
             this.Load += new System.EventHandler(this.General_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
