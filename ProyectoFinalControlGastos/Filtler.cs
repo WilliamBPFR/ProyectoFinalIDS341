@@ -13,7 +13,7 @@ namespace ProyectoFinalControlGastos
 {
     public partial class Filtler : Form
     {
-        public List<string> NombreColumnas = new List<string> { "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción"};
+        public List<string> NombreColumnas = new List<string> { "ID", "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción"};
         
         public List<Transactions> LoadedTransactions = new List<Transactions>();
 

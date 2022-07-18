@@ -8,6 +8,7 @@ namespace ProyectoFinalControlGastos
 {
     public class Transactions
     {
+        public int IDTrans { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
         public string Coin { get; set; }

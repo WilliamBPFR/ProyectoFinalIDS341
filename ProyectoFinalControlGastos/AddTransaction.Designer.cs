@@ -54,6 +54,8 @@
             this.AddDescription = new System.Windows.Forms.Label();
             this.AddAmountText = new System.Windows.Forms.TextBox();
             this.AddAmount = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             this.AddCancel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddCancel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddCancel.Image = global::ProyectoFinalControlGastos.Properties.Resources.eliminar1;
-            this.AddCancel.Location = new System.Drawing.Point(92, 353);
+            this.AddCancel.Location = new System.Drawing.Point(92, 399);
             this.AddCancel.Name = "AddCancel";
             this.AddCancel.Size = new System.Drawing.Size(121, 33);
             this.AddCancel.TabIndex = 0;
@@ -83,7 +85,7 @@
             this.AddAdd.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddAdd.Image = global::ProyectoFinalControlGastos.Properties.Resources.mas;
-            this.AddAdd.Location = new System.Drawing.Point(456, 350);
+            this.AddAdd.Location = new System.Drawing.Point(456, 396);
             this.AddAdd.Name = "AddAdd";
             this.AddAdd.Size = new System.Drawing.Size(99, 35);
             this.AddAdd.TabIndex = 1;
@@ -100,7 +102,7 @@
             this.btnBorrar.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
             this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBorrar.Location = new System.Drawing.Point(220, 351);
+            this.btnBorrar.Location = new System.Drawing.Point(220, 397);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(94, 35);
             this.btnBorrar.TabIndex = 22;
@@ -116,7 +118,7 @@
             this.btnActualizar.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
             this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.Location = new System.Drawing.Point(322, 351);
+            this.btnActualizar.Location = new System.Drawing.Point(322, 397);
             this.btnActualizar.Name = "btnActualizar";
             this.btnActualizar.Size = new System.Drawing.Size(125, 34);
             this.btnActualizar.TabIndex = 21;
@@ -128,7 +130,7 @@
             // dgvTransaction
             // 
             this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTransaction.Location = new System.Drawing.Point(579, 31);
+            this.dgvTransaction.Location = new System.Drawing.Point(579, 77);
             this.dgvTransaction.Name = "dgvTransaction";
             this.dgvTransaction.RowHeadersWidth = 51;
             this.dgvTransaction.RowTemplate.Height = 29;
@@ -142,7 +144,7 @@
             this.buttonNew.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.buttonNew.Image = ((System.Drawing.Image)(resources.GetObject("buttonNew.Image")));
             this.buttonNew.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonNew.Location = new System.Drawing.Point(5, 351);
+            this.buttonNew.Location = new System.Drawing.Point(5, 397);
             this.buttonNew.Name = "buttonNew";
             this.buttonNew.Size = new System.Drawing.Size(83, 35);
             this.buttonNew.TabIndex = 24;
@@ -171,7 +173,7 @@
             this.groupBox1.Controls.Add(this.AddDescription);
             this.groupBox1.Controls.Add(this.AddAmountText);
             this.groupBox1.Controls.Add(this.AddAmount);
-            this.groupBox1.Location = new System.Drawing.Point(12, 31);
+            this.groupBox1.Location = new System.Drawing.Point(12, 77);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(543, 295);
             this.groupBox1.TabIndex = 25;
@@ -405,12 +407,36 @@
             this.AddAmount.TabIndex = 21;
             this.AddAmount.Text = "Monto";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(346, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(352, 23);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Agrega, edita y elimina tus transacciones:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Times New Roman", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(381, 9);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(317, 33);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Editor de Transacciones:";
+            // 
             // AddTransaction
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(1019, 401);
+            this.ClientSize = new System.Drawing.Size(1019, 442);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonNew);
             this.Controls.Add(this.dgvTransaction);
@@ -427,6 +453,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -457,5 +484,7 @@
         private Label AddDescription;
         private TextBox AddAmountText;
         private Label AddAmount;
+        private Label label2;
+        private Label label3;
     }
 }

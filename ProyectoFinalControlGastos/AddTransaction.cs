@@ -13,22 +13,21 @@ namespace ProyectoFinalControlGastos
 {
     public partial class AddTransaction : Form
     {
-        List<Transactions> TransactionList = new List<Transactions>();
 
-        public List<string> NombreColumnas = new List<string> { "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción" };
+        public List<string> NombreColumnas = new List<string> { "IDTrans", "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción" };
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
         public List<string> PaymentMethods = new List<string>() { "Efectivo", "Tarjeta de Debito", "Tarjeta de Credito", "Transferencia", "Paypal"};
         public bool Updating { get; set; } = false;
         public bool Adding { get; set; } = false;
         public bool Deleting { get; set; } = false;
-
+        public int DeleteId { get; set; } = 0;
         public AddTransaction()
         {
             InitializeComponent();
             InicializeMonedas();
             InitializeCategories(false);
             MetodosDePago(false);
-            Add(false);
+            Add(true);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -109,7 +108,9 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-                Add(true);
+            Adding = true;
+            Add(false);
+            Limpiar();
         }
 
         private void Limpiar()
@@ -142,25 +143,45 @@ namespace ProyectoFinalControlGastos
             btnBorrar.Enabled = true;
         }
 
-        private void Add(bool adding)
+        private void Add(bool Loading)
         {
             var json = string.Empty;
             var TransactionsList = new List<Transactions>();
+            var OtherUsersTransactions = new List<Transactions>();
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
+            var transaction = new Transactions();
 
             if (File.Exists(pathFile))
             {
                 json = File.ReadAllText(pathFile, Encoding.UTF8);
                 TransactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
+
+               var transList2 = TransactionsList;
+
+                for (int i = 0; i<TransactionsList.Count(); i++) { 
+
+                    if(TransactionsList[i].Id != Program.logedUser.Id)
+                    {
+                        OtherUsersTransactions.Add(TransactionsList[i]);
+                        transList2.Remove(TransactionsList[i]);
+                    } 
+                }
+                TransactionsList = transList2;
             }
 
-            var Transaction1 = new Transactions();
-            if (adding)
+
+            if (!Loading)
             {
                 if (Adding)
                 {
-                    Transaction1 = new Transactions
+                    if (DeleteId != 0) {
+                        TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.IDTrans == DeleteId));
+                        DeleteId = 0;
+                    }
+
+                    transaction = new Transactions
                     {
+                        IDTrans = LookMaxID(TransactionsList),
                         Id = Program.logedUser.Id,
                         Name = AddNameText.Text,
                         Coin = comboBoxCoin.Text,
@@ -170,23 +191,66 @@ namespace ProyectoFinalControlGastos
                         Date = AddDateTimer.Value,
                         Method = AddPagos.Text,
                     };
+                    TransactionsList.Add(transaction);
 
-                    TransactionsList.Add(Transaction1);
                 } else if (Deleting) {
-                    string nombre = dgvTransaction.CurrentRow.Cells[0].Value.ToString();
-                    TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.Name == nombre));
-                }
+                    int idtrans = int.Parse(dgvTransaction.CurrentRow.Cells[0].Value.ToString());
+                    TransactionsList.Remove(TransactionsList.FirstOrDefault(x => x.IDTrans == idtrans));
 
+                } else if (Updating && !Adding) {
+                    int idtrans = int.Parse(dgvTransaction.CurrentRow.Cells[0].Value.ToString());
+                    transaction = TransactionsList.FirstOrDefault(x => x.IDTrans == idtrans);
+                    DeleteId = idtrans;
+                    PonerDatos(transaction);
+                    return;
+                }
                 MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            json = JsonConvert.SerializeObject(TransactionsList);
 
+            dgvTransaction.DataSource = TransactionsList;
+            FormatearDGV();
+
+            if (OtherUsersTransactions is not null)
+            {
+                foreach (Transactions item in OtherUsersTransactions)
+                {
+                    TransactionsList.Add(item);
+                }
+            }
+
+            json = JsonConvert.SerializeObject(TransactionsList);
+            
             var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
             sw.Write(json);
             sw.Close();
-            dgvTransaction.DataSource = TransactionsList;
-            FormatearDGV();
-            Limpiar();
+        }
+
+        private void PonerDatos(Transactions  transaction)
+        {
+            AddNameText.Text = transaction.Name;
+            comboBoxCoin.Text = transaction.Coin;
+            AddAmountText.Text = transaction.Amount.ToString();
+            AddDescriptionText.Text = transaction.Description;
+            comboBoxCategories.Text = transaction.Category;
+            AddDateTimer.Value = transaction.Date;
+            AddPagos.Text = transaction.Method;
+        }
+
+        private int LookMaxID(List <Transactions> transacciones)
+        {
+            if (transacciones.Count == 0) {
+                return 1;
+            }
+
+            int idinicial = transacciones[0].IDTrans;
+
+            foreach (Transactions item in transacciones)
+            {
+                if (item.IDTrans > idinicial) { 
+                    idinicial = item.IDTrans;
+                }
+            }
+            return idinicial;
         }
 
         private void FormatearDGV()
@@ -195,6 +259,14 @@ namespace ProyectoFinalControlGastos
                 dgvTransaction.Columns[i].HeaderCell.Value = NombreColumnas[i];
                 dgvTransaction.AutoResizeColumn(i);
             }
+
+            //foreach (DataGridViewRow item in dgvTransaction.Rows)
+            //{
+            //    if (item.Cells[0].Value.ToString() == "0")
+            //    {
+            //        item.
+            //    }  
+            //}
         }
 
         private void InicializeMonedas()
@@ -302,7 +374,27 @@ namespace ProyectoFinalControlGastos
 
         private void button1_Click_2(object sender, EventArgs e)
         {
-
+            if (dgvTransaction.CurrentRow is null)
+            {
+                MessageBox.Show("No puede actualizar sin haber elegido una columna o hecho transacciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else {
+                Updating = true;
+                Add(false);
+                AddNameText.Enabled = true;
+                comboBoxCoin.Enabled = true;
+                AddDescriptionText.Enabled = true;
+                AddAmountText.Enabled = true;
+                AddDescription.Enabled = true;
+                comboBoxCategories.Enabled = true;
+                AddDateTimer.Enabled = true;
+                AddPagos.Enabled = true;
+                buttonNew.Enabled = false;
+                AddAdd.Enabled = true;
+                btnActualizar.Enabled = false;
+                btnBorrar.Enabled = false;
+            }   
         }
 
         private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
@@ -329,8 +421,17 @@ namespace ProyectoFinalControlGastos
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            Deleting = true;
-            Add(true);
+            if (dgvTransaction.CurrentRow is null)
+            {
+                MessageBox.Show("No puede borrar sin haber elegido una columna o hecho transacciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else
+            {
+                Deleting = true;
+                Add(false);
+                Limpiar();
+            }
         }
 
         private void comboBoxCoin_SelectedIndexChanged(object sender, EventArgs e)
