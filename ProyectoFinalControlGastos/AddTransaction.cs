@@ -207,22 +207,20 @@ namespace ProyectoFinalControlGastos
                 MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            dgvTransaction.DataSource = TransactionsList;
-            FormatearDGV();
-
-            if (OtherUsersTransactions is not null)
+            foreach (Transactions item in TransactionsList)
             {
-                foreach (Transactions item in OtherUsersTransactions)
-                {
-                    TransactionsList.Add(item);
-                }
+                OtherUsersTransactions.Add(item);
             }
 
-            json = JsonConvert.SerializeObject(TransactionsList);
+
+            json = JsonConvert.SerializeObject(OtherUsersTransactions);
             
             var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
             sw.Write(json);
             sw.Close();
+
+            dgvTransaction.DataSource = TransactionsList;
+            FormatearDGV();
         }
 
         private void PonerDatos(Transactions  transaction)
