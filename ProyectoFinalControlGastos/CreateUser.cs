@@ -181,6 +181,7 @@ namespace ProyectoFinalControlGastos
                 }
 
                 ocupationList.Add(newocupation);
+                MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
                 json = JsonConvert.SerializeObject(ocupationList);
                 var save = new StreamWriter(pathFile, false, Encoding.UTF8);
@@ -189,7 +190,7 @@ namespace ProyectoFinalControlGastos
 
                 comboBoxOcupations.DataSource = ocupationList;
 
-                MessageBox.Show("La ocupación ha sido agregada", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
             
             }
 

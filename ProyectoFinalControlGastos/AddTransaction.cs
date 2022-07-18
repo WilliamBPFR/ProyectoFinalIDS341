@@ -28,6 +28,8 @@ namespace ProyectoFinalControlGastos
             InitializeCategories(false);
             MetodosDePago(false);
             Add(true);
+
+            comboBoxCoin.Text = Program.logedUser.Monedas;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -108,9 +110,36 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-            Adding = true;
-            Add(false);
-            Limpiar();
+            if (Validar())
+            {
+                Adding = true;
+                Add(false);
+                Limpiar();
+        }
+    }
+
+        private bool Validar()
+        {
+            foreach (Control item in groupBox1.Controls)
+            {
+                if ((item.Text == string.Empty) && item.Name != "AddDescriptionText")
+                {
+                    MessageBox.Show("Ha dejado compos vacíos.\nRecuerde que solo puede dejar vacío el campo de descripción.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            try
+            {
+                float.Parse(AddAmountText.Text);
+            }
+            catch (FormatException e)
+            {
+                MessageBox.Show("Ha introducido un valor no permitido en el monto.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            };
+            return true;
+
         }
 
         private void Limpiar()
