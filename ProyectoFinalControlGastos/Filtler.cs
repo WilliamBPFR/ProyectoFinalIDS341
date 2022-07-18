@@ -291,5 +291,10 @@ namespace ProyectoFinalControlGastos
             dateTimePicker1.Enabled = radioButtonFecha.Checked ? true : false;
             dateTimePicker2.Enabled = radioButtonFecha.Checked ? true : false;
         }
+
+        private void dgvFiltler_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

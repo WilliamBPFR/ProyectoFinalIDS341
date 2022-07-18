@@ -15,6 +15,7 @@ namespace ProyectoFinalControlGastos
     {
         List<Transactions> TransactionList = new List<Transactions>();
 
+        public List<string> NombreColumnas = new List<string> { "Nombre", "Categoría de Transacción", "Moneda", "Cantidad", "Método de Pago", "Id", "Fecha de Creación", "Descripción" };
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
         public List<string> PaymentMethods = new List<string>() { "Efectivo", "Tarjeta de Debito", "Tarjeta de Credito", "Transferencia", "Paypal"};
         public bool Updating { get; set; } = false;
@@ -27,6 +28,7 @@ namespace ProyectoFinalControlGastos
             InicializeMonedas();
             InitializeCategories(false);
             MetodosDePago(false);
+            Add(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -107,7 +109,7 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
-            Add(true);
+            Add(true);  
         }
 
         private void Limpiar()
@@ -149,28 +151,44 @@ namespace ProyectoFinalControlGastos
             var Transaction1 = new Transactions();
             if (adding)
             {
-                Transaction1 = new Transactions
+                if (Adding)
                 {
-                    Id = Program.logedUser.Id,
-                    Name = AddNameText.Text,
-                    Coin = comboBoxCoin.Text,
-                    Amount = float.Parse(AddAmountText.Text),
-                    Description = AddDescriptionText.Text,
-                    Category = comboBoxCategories.Text,
-                    Date = AddDateTimer.Value,
-                    Method = AddPagos.Text,
-                };
+                    Transaction1 = new Transactions
+                    {
+                        Id = Program.logedUser.Id,
+                        Name = AddNameText.Text,
+                        Coin = comboBoxCoin.Text,
+                        Amount = float.Parse(AddAmountText.Text),
+                        Description = AddDescriptionText.Text,
+                        Category = comboBoxCategories.Text,
+                        Date = AddDateTimer.Value,
+                        Method = AddPagos.Text,
+                    };
 
-                TransactionsList.Add(Transaction1);
-                                            
+                    TransactionsList.Add(Transaction1);
+                } else if (Deleting) {
+                    string nombre = dgvTransaction.CurrentRow.Cells[0].Value.ToString();
+                    TransactionList.Remove(TransactionList.FirstOrDefault(x => x.Name == nombre));
+                }
+
+                MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             json = JsonConvert.SerializeObject(TransactionsList);
 
             var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
             sw.Write(json);
             sw.Close();
-            MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            dgvTransaction.DataSource = TransactionsList;
+            FormatearDGV();
             Limpiar();
+        }
+
+        private void FormatearDGV()
+        {
+            for (int i = 0; i< NombreColumnas.Count; i++) { 
+                dgvTransaction.Columns[i].HeaderCell.Value = NombreColumnas[i];
+                dgvTransaction.AutoResizeColumn(i);
+            }
         }
 
         private void InicializeMonedas()

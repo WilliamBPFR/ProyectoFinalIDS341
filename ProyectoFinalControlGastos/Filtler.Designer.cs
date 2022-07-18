@@ -108,6 +108,7 @@
             this.dgvFiltler.RowTemplate.Height = 25;
             this.dgvFiltler.Size = new System.Drawing.Size(1024, 230);
             this.dgvFiltler.TabIndex = 9;
+            this.dgvFiltler.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFiltler_CellContentClick);
             // 
             // label7
             // 

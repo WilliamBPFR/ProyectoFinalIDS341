@@ -33,7 +33,7 @@
             this.AddAdd = new System.Windows.Forms.Button();
             this.btnBorrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvTransaction = new System.Windows.Forms.DataGridView();
             this.buttonNew = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.addNewMethod = new System.Windows.Forms.TextBox();
@@ -54,7 +54,7 @@
             this.AddDescription = new System.Windows.Forms.Label();
             this.AddAmountText = new System.Windows.Forms.TextBox();
             this.AddAmount = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -124,15 +124,15 @@
             this.btnActualizar.UseVisualStyleBackColor = false;
             this.btnActualizar.Click += new System.EventHandler(this.button1_Click_2);
             // 
-            // dataGridView1
+            // dgvTransaction
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(579, 31);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(433, 353);
-            this.dataGridView1.TabIndex = 23;
+            this.dgvTransaction.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransaction.Location = new System.Drawing.Point(579, 31);
+            this.dgvTransaction.Name = "dgvTransaction";
+            this.dgvTransaction.RowHeadersWidth = 51;
+            this.dgvTransaction.RowTemplate.Height = 29;
+            this.dgvTransaction.Size = new System.Drawing.Size(433, 353);
+            this.dgvTransaction.TabIndex = 23;
             // 
             // buttonNew
             // 
@@ -411,7 +411,7 @@
             this.ClientSize = new System.Drawing.Size(1019, 401);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonNew);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvTransaction);
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.AddAdd);
@@ -421,7 +421,7 @@
             this.Text = "Añadir Transacción";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddTransaction_FormClosed);
             this.Load += new System.EventHandler(this.AddTransaction_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransaction)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -434,7 +434,7 @@
         private Button AddAdd;
         private Button btnBorrar;
         private Button btnActualizar;
-        private DataGridView dataGridView1;
+        private DataGridView dgvTransaction;
         private Button buttonNew;
         private GroupBox groupBox1;
         private TextBox addNewMethod;
