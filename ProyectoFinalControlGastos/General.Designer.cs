@@ -47,9 +47,9 @@
             this.GeneralTitle.ForeColor = System.Drawing.Color.Gold;
             this.GeneralTitle.Location = new System.Drawing.Point(77, 72);
             this.GeneralTitle.Name = "GeneralTitle";
-            this.GeneralTitle.Size = new System.Drawing.Size(270, 42);
+            this.GeneralTitle.Size = new System.Drawing.Size(278, 42);
             this.GeneralTitle.TabIndex = 1;
-            this.GeneralTitle.Text = "Nombre de la app";
+            this.GeneralTitle.Text = "Financial Control";
             this.GeneralTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.GeneralTitle.Click += new System.EventHandler(this.GeneralTitle_Click);
             // 
@@ -176,7 +176,7 @@
             this.Controls.Add(this.GeneralTitle);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "General";
-            this.Text = "Nombre de la app";
+            this.Text = "Inicio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.General_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.General_FormClosed);
             this.Load += new System.EventHandler(this.General_Load);

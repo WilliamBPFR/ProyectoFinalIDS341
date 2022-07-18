@@ -185,17 +185,20 @@ namespace ProyectoFinalControlGastos
                 json = File.ReadAllText(pathFile, Encoding.UTF8);
                 TransactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
 
-               var transList2 = TransactionsList;
+               var transList2 = new List<Transactions>();
 
                 for (int i = 0; i<TransactionsList.Count(); i++) { //Cargar solo las transacciones del usuario logeado
 
                     if(TransactionsList[i].Id != Program.logedUser.Id)//Filtra las transacciones y separa las del usuario logeado y las demas
                     {
                         OtherUsersTransactions.Add(TransactionsList[i]);
-                        transList2.Remove(TransactionsList[i]);
                     } 
                 }
-                TransactionsList = transList2;//ListA con las transacciones del usuario logueado
+                foreach (var item in OtherUsersTransactions)//Eliminar las transacciones de los otros usuarios
+                {
+                    TransactionsList.Remove(item);
+                }
+               
             }
 
 
