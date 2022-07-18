@@ -17,6 +17,10 @@ namespace ProyectoFinalControlGastos
 
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
         public List<string> PaymentMethods = new List<string>() { "Efectivo", "Tarjeta de Debito", "Tarjeta de Credito", "Transferencia", "Paypal"};
+        public bool Updating { get; set; } = false;
+        public bool Adding { get; set; } = false;
+        public bool Deleting { get; set; } = false;
+
         public AddTransaction()
         {
             InitializeComponent();
@@ -86,14 +90,48 @@ namespace ProyectoFinalControlGastos
 
         private void AddCancel_Click(object sender, EventArgs e)
         {
-            var General = new General();
-            General.Show();
-            Hide();
+            LookForm();
+            Close();
+        }
+
+        private void LookForm()
+        {
+            foreach (Form item in Application.OpenForms)
+            {
+                if (item is General)
+                {
+                    item.Show();
+                }
+            }
         }
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
             Add(true);
+        }
+
+        private void Limpiar()
+        {
+            foreach (Control item in groupBox1.Controls)
+            {
+                if (item is ComboBox || item is TextBox) {
+                    item.Text = string.Empty;
+                }
+            }
+            Adding = false;
+            Deleting = false;
+            Updating = false;
+            AddNameText.Enabled = false;
+            comboBoxCoin.Enabled = false;
+            AddAmountText.Enabled = false;
+            AddDescription.Enabled = false;
+            comboBoxCategories.Enabled = false;
+            AddDateTimer.Enabled = false;
+            AddPagos.Enabled = false;
+            buttonNew.Enabled = true;
+            AddAdd.Enabled = false;
+            btnActualizar.Enabled = true;
+            btnBorrar.Enabled = true;
         }
 
         private void Add(bool adding)
@@ -132,6 +170,7 @@ namespace ProyectoFinalControlGastos
             sw.Write(json);
             sw.Close();
             MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Limpiar();
         }
 
         private void InicializeMonedas()
@@ -217,8 +256,6 @@ namespace ProyectoFinalControlGastos
             save.Close();
             AddPagos.DataSource = MetodosDePago;
         }
-
-
         private void AddNewCategory_TextChanged(object sender, EventArgs e)
         {
 
@@ -242,6 +279,27 @@ namespace ProyectoFinalControlGastos
         private void button1_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddTransaction_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LookForm();
+        }
+
+        private void button1_Click_3(object sender, EventArgs e)
+        {
+            Adding = true;
+            AddNameText.Enabled = true;
+            comboBoxCoin.Enabled = true;
+            AddAmountText.Enabled = true;
+            AddDescription.Enabled = true;
+            comboBoxCategories.Enabled = true;
+            AddDateTimer.Enabled = true;
+            AddPagos.Enabled = true;
+            buttonNew.Enabled = false;
+            AddAdd.Enabled = true;
+            btnActualizar.Enabled = false;
+            btnBorrar.Enabled = false;
         }
     }
 }
