@@ -28,20 +28,22 @@ namespace ProyectoFinalControlGastos
         {
             var json = string.Empty;
             var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
-            var transactionsList = new List<string>();
+            var transactionsList = new List<Transactions>();
 
             json = File.ReadAllText(pathFile);
-            transactionsList = JsonConvert.DeserializeObject<List<string>>(json);
+            transactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
 
             dgvFiltler.DataSource = transactionsList;
 
             int cont = 0;
-            foreach (ColumnHeader item in dgvFiltler.Columns)
-            {
-                item.Name = NombreColumnas[cont];
-                cont++;
+
+            for (int i = 0; i<NombreColumnas.Count(); i++) { 
+              
+                dgvFiltler.Columns[i].HeaderCell.Value = NombreColumnas[i];
+                
             }
-        }
+            dgvFiltler.AutoSize.
+          }   
 
         private void InitializeCategorias()
         {
@@ -95,10 +97,7 @@ namespace ProyectoFinalControlGastos
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string password = Microsoft.VisualBasic.Interaction.InputBox("ADAASAS", "ASAA");
-
-            
+        { 
         }
 
         private void button2_Click(object sender, EventArgs e)
