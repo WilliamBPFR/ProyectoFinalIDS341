@@ -82,7 +82,9 @@ namespace ProyectoFinalControlGastos
               var save = new StreamWriter(pathFile, false, Encoding.UTF8);
               save.Write(json);
               save.Close();
+
             comboBoxCategories.DataSource = categoriesList;
+            comboBoxCategories.Update();
         }
         
 
@@ -461,6 +463,26 @@ namespace ProyectoFinalControlGastos
         private void comboBoxCoin_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AddNewCategory_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            AddNewCategory.Text = string.Empty;
+        }
+
+        private void addNewMethod_MouseClick_1(object sender, MouseEventArgs e)
+        {
+            addNewMethod.Text = string.Empty;
+        }
+
+        private void AddNewCategoryButtom_Click(object sender, EventArgs e)
+        {
+            InitializeCategories(true);
+        }
+
+        private void btnAgregarMetodo_Click(object sender, EventArgs e)
+        {
+            MetodosDePago(true);
         }
     }
 }

@@ -188,6 +188,7 @@
             this.addNewMethod.Size = new System.Drawing.Size(167, 21);
             this.addNewMethod.TabIndex = 38;
             this.addNewMethod.Text = "Añadir nuevo metodo (opcional)";
+            this.addNewMethod.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addNewMethod_MouseClick_1);
             // 
             // btnAgregarMetodo
             // 
@@ -200,6 +201,7 @@
             this.btnAgregarMetodo.TabIndex = 37;
             this.btnAgregarMetodo.Text = "+";
             this.btnAgregarMetodo.UseVisualStyleBackColor = false;
+            this.btnAgregarMetodo.Click += new System.EventHandler(this.btnAgregarMetodo_Click);
             // 
             // comboBoxCoin
             // 
@@ -319,6 +321,7 @@
             this.AddNewCategory.Size = new System.Drawing.Size(167, 21);
             this.AddNewCategory.TabIndex = 28;
             this.AddNewCategory.Text = "Añadir nueva categoria (opcional)";
+            this.AddNewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNewCategory_MouseClick_1);
             // 
             // AddNewCategoryButtom
             // 
@@ -331,6 +334,7 @@
             this.AddNewCategoryButtom.TabIndex = 27;
             this.AddNewCategoryButtom.Text = "+";
             this.AddNewCategoryButtom.UseVisualStyleBackColor = false;
+            this.AddNewCategoryButtom.Click += new System.EventHandler(this.AddNewCategoryButtom_Click);
             // 
             // comboBoxCategories
             // 
@@ -445,6 +449,7 @@
             this.Controls.Add(this.AddAdd);
             this.Controls.Add(this.AddCancel);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddTransaction";
             this.Text = "Añadir Transacción";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AddTransaction_FormClosed);

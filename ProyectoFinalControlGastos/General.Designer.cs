@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(General));
             this.GeneralTitle = new System.Windows.Forms.Label();
             this.GeneralView = new System.Windows.Forms.Button();
             this.GeneralAdd = new System.Windows.Forms.Button();
@@ -37,7 +38,9 @@
             this.labelName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelID = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // GeneralTitle
@@ -159,12 +162,23 @@
             this.labelID.Size = new System.Drawing.Size(0, 22);
             this.labelID.TabIndex = 9;
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::ProyectoFinalControlGastos.Properties.Resources.presupuesto;
+            this.pictureBox2.Location = new System.Drawing.Point(274, 305);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(140, 144);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 10;
+            this.pictureBox2.TabStop = false;
+            // 
             // General
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(426, 450);
+            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelName);
@@ -175,12 +189,14 @@
             this.Controls.Add(this.GeneralView);
             this.Controls.Add(this.GeneralTitle);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "General";
             this.Text = "Inicio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.General_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.General_FormClosed);
             this.Load += new System.EventHandler(this.General_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +213,6 @@
         private Label labelName;
         private Label label2;
         private Label labelID;
+        private PictureBox pictureBox2;
     }
 }
