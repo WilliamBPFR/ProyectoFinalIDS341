@@ -49,8 +49,8 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.buttonFiltro = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.radioButtonMonto = new System.Windows.Forms.RadioButton();
-            this.radioButtonFecha = new System.Windows.Forms.RadioButton();
+            this.checkBoxMonto = new System.Windows.Forms.CheckBox();
+            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFiltler)).BeginInit();
             this.SuspendLayout();
             // 
@@ -308,33 +308,31 @@
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // radioButtonMonto
+            // checkBoxMonto
             // 
-            this.radioButtonMonto.AutoSize = true;
-            this.radioButtonMonto.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonMonto.ForeColor = System.Drawing.Color.White;
-            this.radioButtonMonto.Location = new System.Drawing.Point(619, 90);
-            this.radioButtonMonto.Name = "radioButtonMonto";
-            this.radioButtonMonto.Size = new System.Drawing.Size(87, 26);
-            this.radioButtonMonto.TabIndex = 34;
-            this.radioButtonMonto.TabStop = true;
-            this.radioButtonMonto.Text = "Monto:";
-            this.radioButtonMonto.UseVisualStyleBackColor = true;
-            this.radioButtonMonto.CheckedChanged += new System.EventHandler(this.radioButtonMonto_CheckedChanged);
+            this.checkBoxMonto.AutoSize = true;
+            this.checkBoxMonto.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxMonto.ForeColor = System.Drawing.Color.White;
+            this.checkBoxMonto.Location = new System.Drawing.Point(622, 93);
+            this.checkBoxMonto.Name = "checkBoxMonto";
+            this.checkBoxMonto.Size = new System.Drawing.Size(88, 26);
+            this.checkBoxMonto.TabIndex = 36;
+            this.checkBoxMonto.Text = "Monto:";
+            this.checkBoxMonto.UseVisualStyleBackColor = true;
+            this.checkBoxMonto.CheckedChanged += new System.EventHandler(this.checkBoxMonto_CheckedChanged);
             // 
-            // radioButtonFecha
+            // checkBoxFecha
             // 
-            this.radioButtonFecha.AutoSize = true;
-            this.radioButtonFecha.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonFecha.ForeColor = System.Drawing.Color.White;
-            this.radioButtonFecha.Location = new System.Drawing.Point(716, 92);
-            this.radioButtonFecha.Name = "radioButtonFecha";
-            this.radioButtonFecha.Size = new System.Drawing.Size(213, 26);
-            this.radioButtonFecha.TabIndex = 35;
-            this.radioButtonFecha.TabStop = true;
-            this.radioButtonFecha.Text = "Fecha de Transacción:";
-            this.radioButtonFecha.UseVisualStyleBackColor = true;
-            this.radioButtonFecha.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.checkBoxFecha.AutoSize = true;
+            this.checkBoxFecha.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.checkBoxFecha.ForeColor = System.Drawing.Color.White;
+            this.checkBoxFecha.Location = new System.Drawing.Point(716, 93);
+            this.checkBoxFecha.Name = "checkBoxFecha";
+            this.checkBoxFecha.Size = new System.Drawing.Size(214, 26);
+            this.checkBoxFecha.TabIndex = 37;
+            this.checkBoxFecha.Text = "Fecha de Transacción:";
+            this.checkBoxFecha.UseVisualStyleBackColor = true;
+            this.checkBoxFecha.CheckedChanged += new System.EventHandler(this.checkBoxFecha_CheckedChanged);
             // 
             // Filtler
             // 
@@ -342,8 +340,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1058, 450);
-            this.Controls.Add(this.radioButtonFecha);
-            this.Controls.Add(this.radioButtonMonto);
+            this.Controls.Add(this.checkBoxFecha);
+            this.Controls.Add(this.checkBoxMonto);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonFiltro);
             this.Controls.Add(this.dateTimePicker2);
@@ -398,7 +396,7 @@
         private DateTimePicker dateTimePicker2;
         private Button buttonFiltro;
         private Button button2;
-        private RadioButton radioButtonMonto;
-        private RadioButton radioButtonFecha;
+        private CheckBox checkBoxMonto;
+        private CheckBox checkBoxFecha;
     }
 }

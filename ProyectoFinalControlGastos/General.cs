@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,14 +40,31 @@ namespace ProyectoFinalControlGastos
 
         private void GeneralView_Click(object sender, EventArgs e)
         {
-            if (File.Exists($"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json"))
+            int cont = 0;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
+
+            if (File.Exists(pathFile))
             {
-                var filtro = new Filtler();
-                filtro.Show();
-                Hide();
-            }
-            else {
-                MessageBox.Show("No ha realizado ninguna transacción. Por favor realice una y vuelva a este apartado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var json = File.ReadAllText(pathFile);
+                foreach (Transactions item in JsonConvert.DeserializeObject<List<Transactions>>(json))
+                {
+                    if (item.Id == Program.logedUser.Id)
+                    {
+                        cont++;
+                    }
+                }
+
+                if (cont != 0)
+                {
+
+                    var filtro = new Filtler();
+                    filtro.Show();
+                    Hide();
+                }
+                else
+                {
+                    MessageBox.Show("No ha realizado ninguna transacción. Por favor realice una y vuelva a este apartado.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

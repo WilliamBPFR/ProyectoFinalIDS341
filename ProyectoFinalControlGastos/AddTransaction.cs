@@ -277,7 +277,7 @@ namespace ProyectoFinalControlGastos
                     idinicial = item.IDTrans;
                 }
             }
-            return idinicial;
+            return idinicial+1;
         }
 
         private void FormatearDGV()
@@ -287,13 +287,7 @@ namespace ProyectoFinalControlGastos
                 dgvTransaction.AutoResizeColumn(i);
             }
 
-            //foreach (DataGridViewRow item in dgvTransaction.Rows)
-            //{
-            //    if (item.Cells[0].Value.ToString() == "0")
-            //    {
-            //        item.
-            //    }  
-            //}
+         
         }
 
         private void InicializeMonedas()
