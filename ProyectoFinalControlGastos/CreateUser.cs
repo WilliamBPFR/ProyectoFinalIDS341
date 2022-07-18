@@ -230,15 +230,17 @@ namespace ProyectoFinalControlGastos
                 save.Write(json);
                 save.Close();
 
-                comboBoxOcupations.DataSource = monedaList;
-
-                
-            
+                comboBoxOcupations.DataSource = monedaList;  
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             InicializeMonedas(true);
+        }
+
+        private void comboBoxCoin_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

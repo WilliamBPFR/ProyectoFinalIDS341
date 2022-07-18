@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddTransaction));
             this.AddCancel = new System.Windows.Forms.Button();
             this.AddAdd = new System.Windows.Forms.Button();
             this.AddAmount = new System.Windows.Forms.Label();
@@ -46,18 +47,24 @@
             this.AddPago = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxCoin = new System.Windows.Forms.ComboBox();
+            this.addNewMethod = new System.Windows.Forms.TextBox();
+            this.btnAgregarMetodo = new System.Windows.Forms.Button();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // AddCancel
             // 
-            this.AddCancel.BackColor = System.Drawing.Color.Red;
+            this.AddCancel.BackColor = System.Drawing.Color.Yellow;
             this.AddCancel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddCancel.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddCancel.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddCancel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddCancel.Image = global::ProyectoFinalControlGastos.Properties.Resources.eliminar1;
-            this.AddCancel.Location = new System.Drawing.Point(89, 376);
+            this.AddCancel.Location = new System.Drawing.Point(418, 406);
             this.AddCancel.Name = "AddCancel";
-            this.AddCancel.Size = new System.Drawing.Size(164, 35);
+            this.AddCancel.Size = new System.Drawing.Size(143, 33);
             this.AddCancel.TabIndex = 0;
             this.AddCancel.Text = "CANCELAR";
             this.AddCancel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -69,12 +76,12 @@
             // 
             this.AddAdd.BackColor = System.Drawing.Color.Aqua;
             this.AddAdd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.AddAdd.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.AddAdd.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.AddAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.AddAdd.Image = global::ProyectoFinalControlGastos.Properties.Resources.mas;
-            this.AddAdd.Location = new System.Drawing.Point(327, 376);
+            this.AddAdd.Location = new System.Drawing.Point(12, 406);
             this.AddAdd.Name = "AddAdd";
-            this.AddAdd.Size = new System.Drawing.Size(164, 35);
+            this.AddAdd.Size = new System.Drawing.Size(127, 35);
             this.AddAdd.TabIndex = 1;
             this.AddAdd.Text = "AÑADIR";
             this.AddAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -88,9 +95,9 @@
             this.AddAmount.BackColor = System.Drawing.Color.Transparent;
             this.AddAmount.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddAmount.ForeColor = System.Drawing.Color.Gold;
-            this.AddAmount.Location = new System.Drawing.Point(105, 104);
+            this.AddAmount.Location = new System.Drawing.Point(115, 102);
             this.AddAmount.Name = "AddAmount";
-            this.AddAmount.Size = new System.Drawing.Size(50, 19);
+            this.AddAmount.Size = new System.Drawing.Size(61, 22);
             this.AddAmount.TabIndex = 2;
             this.AddAmount.Text = "Monto";
             // 
@@ -98,9 +105,9 @@
             // 
             this.AddAmountText.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.AddAmountText.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddAmountText.Location = new System.Drawing.Point(106, 125);
+            this.AddAmountText.Location = new System.Drawing.Point(115, 124);
             this.AddAmountText.Name = "AddAmountText";
-            this.AddAmountText.Size = new System.Drawing.Size(100, 21);
+            this.AddAmountText.Size = new System.Drawing.Size(95, 25);
             this.AddAmountText.TabIndex = 3;
             // 
             // AddDescriptionText
@@ -121,7 +128,7 @@
             this.AddDescription.ForeColor = System.Drawing.Color.Gold;
             this.AddDescription.Location = new System.Drawing.Point(33, 166);
             this.AddDescription.Name = "AddDescription";
-            this.AddDescription.Size = new System.Drawing.Size(81, 19);
+            this.AddDescription.Size = new System.Drawing.Size(107, 22);
             this.AddDescription.TabIndex = 4;
             this.AddDescription.Text = "Descripción";
             // 
@@ -133,7 +140,7 @@
             this.AddCategory.ForeColor = System.Drawing.Color.Gold;
             this.AddCategory.Location = new System.Drawing.Point(331, 42);
             this.AddCategory.Name = "AddCategory";
-            this.AddCategory.Size = new System.Drawing.Size(163, 19);
+            this.AddCategory.Size = new System.Drawing.Size(212, 22);
             this.AddCategory.TabIndex = 6;
             this.AddCategory.Text = "Categoria de Transacción";
             // 
@@ -151,7 +158,7 @@
             "Salud"});
             this.comboBoxCategories.Location = new System.Drawing.Point(327, 64);
             this.comboBoxCategories.Name = "comboBoxCategories";
-            this.comboBoxCategories.Size = new System.Drawing.Size(197, 23);
+            this.comboBoxCategories.Size = new System.Drawing.Size(197, 25);
             this.comboBoxCategories.TabIndex = 7;
             this.comboBoxCategories.SelectedIndexChanged += new System.EventHandler(this.AddCategories_SelectedIndexChanged);
             // 
@@ -174,10 +181,11 @@
             this.AddNewCategory.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddNewCategory.Location = new System.Drawing.Point(327, 104);
             this.AddNewCategory.Name = "AddNewCategory";
-            this.AddNewCategory.Size = new System.Drawing.Size(167, 21);
+            this.AddNewCategory.Size = new System.Drawing.Size(167, 25);
             this.AddNewCategory.TabIndex = 10;
             this.AddNewCategory.Text = "Añadir nueva categoria (opcional)";
             this.AddNewCategory.MouseClick += new System.Windows.Forms.MouseEventHandler(this.AddNewCategory_MouseClick);
+            this.AddNewCategory.TextChanged += new System.EventHandler(this.AddNewCategory_TextChanged);
             // 
             // AddNameText
             // 
@@ -185,8 +193,9 @@
             this.AddNameText.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddNameText.Location = new System.Drawing.Point(29, 64);
             this.AddNameText.Name = "AddNameText";
-            this.AddNameText.Size = new System.Drawing.Size(181, 21);
+            this.AddNameText.Size = new System.Drawing.Size(181, 25);
             this.AddNameText.TabIndex = 12;
+            this.AddNameText.TextChanged += new System.EventHandler(this.AddNameText_TextChanged);
             // 
             // AddName
             // 
@@ -196,7 +205,7 @@
             this.AddName.ForeColor = System.Drawing.Color.Gold;
             this.AddName.Location = new System.Drawing.Point(33, 43);
             this.AddName.Name = "AddName";
-            this.AddName.Size = new System.Drawing.Size(60, 19);
+            this.AddName.Size = new System.Drawing.Size(74, 22);
             this.AddName.TabIndex = 11;
             this.AddName.Text = "Nombre";
             // 
@@ -208,7 +217,7 @@
             this.AddDateTime.ForeColor = System.Drawing.Color.Gold;
             this.AddDateTime.Location = new System.Drawing.Point(331, 145);
             this.AddDateTime.Name = "AddDateTime";
-            this.AddDateTime.Size = new System.Drawing.Size(141, 19);
+            this.AddDateTime.Size = new System.Drawing.Size(182, 22);
             this.AddDateTime.TabIndex = 13;
             this.AddDateTime.Text = "Fecha de Transacción";
             // 
@@ -218,7 +227,7 @@
             this.AddDateTimer.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.AddDateTimer.Location = new System.Drawing.Point(327, 167);
             this.AddDateTimer.Name = "AddDateTimer";
-            this.AddDateTimer.Size = new System.Drawing.Size(200, 21);
+            this.AddDateTimer.Size = new System.Drawing.Size(200, 25);
             this.AddDateTimer.TabIndex = 14;
             // 
             // AddPagos
@@ -236,8 +245,9 @@
             "Paypal"});
             this.AddPagos.Location = new System.Drawing.Point(327, 237);
             this.AddPagos.Name = "AddPagos";
-            this.AddPagos.Size = new System.Drawing.Size(197, 23);
+            this.AddPagos.Size = new System.Drawing.Size(197, 25);
             this.AddPagos.TabIndex = 16;
+            this.AddPagos.SelectedIndexChanged += new System.EventHandler(this.AddPagos_SelectedIndexChanged);
             // 
             // AddPago
             // 
@@ -247,7 +257,7 @@
             this.AddPago.ForeColor = System.Drawing.Color.Gold;
             this.AddPago.Location = new System.Drawing.Point(331, 215);
             this.AddPago.Name = "AddPago";
-            this.AddPago.Size = new System.Drawing.Size(112, 19);
+            this.AddPago.Size = new System.Drawing.Size(139, 22);
             this.AddPago.TabIndex = 15;
             this.AddPago.Text = "Método de Pago";
             // 
@@ -259,7 +269,7 @@
             this.label1.ForeColor = System.Drawing.Color.Gold;
             this.label1.Location = new System.Drawing.Point(28, 102);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 19);
+            this.label1.Size = new System.Drawing.Size(74, 22);
             this.label1.TabIndex = 17;
             this.label1.Text = "Moneda";
             // 
@@ -271,22 +281,95 @@
             this.comboBoxCoin.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxCoin.FormattingEnabled = true;
             this.comboBoxCoin.Items.AddRange(new object[] {
-            "Efectivo",
-            "Tarjeta de Debito",
-            "Tarjeta de Credito",
-            "Transferencia",
-            "Paypal"});
+            "€ EUR",
+            "$ USD",
+            "$ DOP",
+            "$ MXN",
+            "Sol",
+            "¥ CNY",
+            "$ RUB"});
             this.comboBoxCoin.Location = new System.Drawing.Point(28, 122);
             this.comboBoxCoin.Name = "comboBoxCoin";
-            this.comboBoxCoin.Size = new System.Drawing.Size(71, 23);
+            this.comboBoxCoin.Size = new System.Drawing.Size(71, 25);
             this.comboBoxCoin.TabIndex = 18;
+            // 
+            // addNewMethod
+            // 
+            this.addNewMethod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.addNewMethod.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.addNewMethod.Location = new System.Drawing.Point(327, 277);
+            this.addNewMethod.Name = "addNewMethod";
+            this.addNewMethod.Size = new System.Drawing.Size(167, 25);
+            this.addNewMethod.TabIndex = 20;
+            this.addNewMethod.Text = "Añadir nuevo metodo (opcional)";
+            this.addNewMethod.MouseClick += new System.Windows.Forms.MouseEventHandler(this.addNewMethod_MouseClick);
+            this.addNewMethod.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // btnAgregarMetodo
+            // 
+            this.btnAgregarMetodo.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnAgregarMetodo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAgregarMetodo.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnAgregarMetodo.Location = new System.Drawing.Point(500, 277);
+            this.btnAgregarMetodo.Name = "btnAgregarMetodo";
+            this.btnAgregarMetodo.Size = new System.Drawing.Size(24, 21);
+            this.btnAgregarMetodo.TabIndex = 19;
+            this.btnAgregarMetodo.Text = "+";
+            this.btnAgregarMetodo.UseVisualStyleBackColor = false;
+            this.btnAgregarMetodo.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.Color.Red;
+            this.btnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrar.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("btnBorrar.Image")));
+            this.btnBorrar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBorrar.Location = new System.Drawing.Point(302, 406);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(110, 35);
+            this.btnBorrar.TabIndex = 22;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.Lime;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnActualizar.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnActualizar.Image = ((System.Drawing.Image)(resources.GetObject("btnActualizar.Image")));
+            this.btnActualizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.Location = new System.Drawing.Point(145, 406);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(151, 34);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(591, 42);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 29;
+            this.dataGridView1.Size = new System.Drawing.Size(433, 397);
+            this.dataGridView1.TabIndex = 23;
             // 
             // AddTransaction
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(587, 483);
+            this.ClientSize = new System.Drawing.Size(1047, 483);
+            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnBorrar);
+            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.addNewMethod);
+            this.Controls.Add(this.btnAgregarMetodo);
             this.Controls.Add(this.comboBoxCoin);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddPagos);
@@ -309,6 +392,7 @@
             this.Name = "AddTransaction";
             this.Text = "Añadir Transacción";
             this.Load += new System.EventHandler(this.AddTransaction_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +418,10 @@
         private Label AddPago;
         private Label label1;
         private ComboBox comboBoxCoin;
+        private TextBox addNewMethod;
+        private Button btnAgregarMetodo;
+        private Button btnBorrar;
+        private Button btnActualizar;
+        private DataGridView dataGridView1;
     }
 }

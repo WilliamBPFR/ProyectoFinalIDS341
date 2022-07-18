@@ -32,6 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
             this.groupBoxCreateUser = new System.Windows.Forms.GroupBox();
+            this.buttonCrearMoneda = new System.Windows.Forms.Button();
             this.comboBoxOcupations = new System.Windows.Forms.ComboBox();
             this.AddNewOcupationButton = new System.Windows.Forms.Button();
             this.textBoxRepeatPassword = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonCrearMoneda = new System.Windows.Forms.Button();
             this.groupBoxCreateUser.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -117,6 +117,19 @@
             this.groupBoxCreateUser.Size = new System.Drawing.Size(548, 251);
             this.groupBoxCreateUser.TabIndex = 21;
             this.groupBoxCreateUser.TabStop = false;
+            // 
+            // buttonCrearMoneda
+            // 
+            this.buttonCrearMoneda.BackColor = System.Drawing.Color.LimeGreen;
+            this.buttonCrearMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonCrearMoneda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.buttonCrearMoneda.Location = new System.Drawing.Point(518, 115);
+            this.buttonCrearMoneda.Name = "buttonCrearMoneda";
+            this.buttonCrearMoneda.Size = new System.Drawing.Size(24, 21);
+            this.buttonCrearMoneda.TabIndex = 36;
+            this.buttonCrearMoneda.Text = "+";
+            this.buttonCrearMoneda.UseVisualStyleBackColor = false;
+            this.buttonCrearMoneda.Click += new System.EventHandler(this.button2_Click);
             // 
             // comboBoxOcupations
             // 
@@ -195,6 +208,7 @@
             this.comboBoxCoin.Name = "comboBoxCoin";
             this.comboBoxCoin.Size = new System.Drawing.Size(122, 23);
             this.comboBoxCoin.TabIndex = 30;
+            this.comboBoxCoin.SelectedIndexChanged += new System.EventHandler(this.comboBoxCoin_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -293,19 +307,6 @@
             this.label1.Size = new System.Drawing.Size(81, 22);
             this.label1.TabIndex = 19;
             this.label1.Text = "Nombre:";
-            // 
-            // buttonCrearMoneda
-            // 
-            this.buttonCrearMoneda.BackColor = System.Drawing.Color.LimeGreen;
-            this.buttonCrearMoneda.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.buttonCrearMoneda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.buttonCrearMoneda.Location = new System.Drawing.Point(518, 115);
-            this.buttonCrearMoneda.Name = "buttonCrearMoneda";
-            this.buttonCrearMoneda.Size = new System.Drawing.Size(24, 21);
-            this.buttonCrearMoneda.TabIndex = 36;
-            this.buttonCrearMoneda.Text = "+";
-            this.buttonCrearMoneda.UseVisualStyleBackColor = false;
-            this.buttonCrearMoneda.Click += new System.EventHandler(this.button2_Click);
             // 
             // CreateUser
             // 

@@ -13,12 +13,16 @@ namespace ProyectoFinalControlGastos
 {
     public partial class AddTransaction : Form
     {
+        List<Transactions> TransactionList = new List<Transactions>();
+
         public List<string> TransCategories = new List<string>() { "Comida", "Transporte", "Entretenimiento", "Salud"};
+        public List<string> PaymentMethods = new List<string>() { "Efectivo", "Tarjeta de Debito", "Tarjeta de Credito", "Transferencia", "Paypal"};
         public AddTransaction()
         {
             InitializeComponent();
             InicializeMonedas();
             InitializeCategories(false);
+            MetodosDePago(false);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -89,7 +93,45 @@ namespace ProyectoFinalControlGastos
 
         private void AddAdd_Click(object sender, EventArgs e)
         {
+            Add(true);
+        }
 
+        private void Add(bool adding)
+        {
+            var json = string.Empty;
+            var TransactionsList = new List<Transactions>();
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\Transactions.json";
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile, Encoding.UTF8);
+                TransactionsList = JsonConvert.DeserializeObject<List<Transactions>>(json);
+            }
+
+            var Transaction1 = new Transactions();
+            if (adding)
+            {
+                Transaction1 = new Transactions
+                {
+                    Id = Program.logedUser.Id,
+                    Name = AddNameText.Text,
+                    Coin = comboBoxCoin.Text,
+                    Amount = float.Parse(AddAmountText.Text),
+                    Description = AddDescriptionText.Text,
+                    Category = comboBoxCategories.Text,
+                    Date = AddDateTimer.Value,
+                    Method = AddPagos.Text,
+                };
+
+                TransactionsList.Add(Transaction1);
+                                            
+            }
+            json = JsonConvert.SerializeObject(TransactionsList);
+
+            var sw = new StreamWriter(pathFile, false, Encoding.UTF8);
+            sw.Write(json);
+            sw.Close();
+            MessageBox.Show("La transacción ha sido completada", "Transacción Completada", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void InicializeMonedas()
@@ -103,6 +145,7 @@ namespace ProyectoFinalControlGastos
                 comboBoxCoin.DataSource = JsonConvert.DeserializeObject<List<string>>(json);
             }
         }
+
         private void AddTransaction_Load(object sender, EventArgs e)
         {
 
@@ -111,6 +154,94 @@ namespace ProyectoFinalControlGastos
         private void AddNewCategory_MouseClick(object sender, MouseEventArgs e)
         {
             AddNewCategory.Text = string.Empty;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (addNewMethod.Text != "Añadir nuevo metodo (opcional)")
+            {
+                MetodosDePago(true);
+            }
+
+        }
+        private void MetodosDePago(bool adding)
+        {
+            var json = string.Empty;
+            var pathFile = $"{AppDomain.CurrentDomain.BaseDirectory}\\MetodosDePago.json";
+            var MetodosDePago = new List<string>();
+            string newmethod;
+
+            if (File.Exists(pathFile))
+            {
+                json = File.ReadAllText(pathFile);
+                MetodosDePago = JsonConvert.DeserializeObject<List<string>>(json);
+                AddPagos.DataSource = MetodosDePago;
+            }
+            else
+            {
+                MetodosDePago = PaymentMethods;
+                AddPagos.DataSource = MetodosDePago;
+            }
+
+            if (adding)
+            {
+
+                if (addNewMethod.Text == string.Empty)
+                {
+                    MessageBox.Show("No puede agregar un método vacío.\nRecuerde que debe llenar el campo y luego presionar el botón de '+'.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                newmethod = addNewMethod.Text;
+
+                foreach (var item in MetodosDePago)
+                {
+                    if (item == newmethod)
+                    {
+                        MessageBox.Show("El método existe.\nTrate de revisar bien las opciones.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                MetodosDePago.Add(newmethod);
+                MessageBox.Show("El método ha sido agregado", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                addNewMethod.Text = "Añadir nuevo método (opcional)";
+            }
+
+            json = JsonConvert.SerializeObject(MetodosDePago);
+            var save = new StreamWriter(pathFile, false, Encoding.UTF8);
+            save.Write(json);
+            save.Close();
+            AddPagos.DataSource = MetodosDePago;
+        }
+
+
+        private void AddNewCategory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddNameText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddPagos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addNewMethod_MouseClick(object sender, MouseEventArgs e)
+        {
+            addNewMethod.Text = string.Empty;
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }
