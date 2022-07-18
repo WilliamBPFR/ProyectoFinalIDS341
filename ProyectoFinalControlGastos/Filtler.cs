@@ -191,7 +191,9 @@ namespace ProyectoFinalControlGastos
         private void Filtlar()
         {
             InitializeTransactions(false);
-            
+
+            var lastrans = new List<Transactions>();
+
             var modifiedList = new List<Transactions>();
 
             if (comboBoxCategorias.Text != "Sin Filtro" && comboBoxCategorias.Text != string.Empty) {
@@ -280,7 +282,12 @@ namespace ProyectoFinalControlGastos
                 if (comboBoxName.Text == "A a Z")
                 {
                     LoadedTransactions.Sort((x,y) => string.Compare(x.Name, y.Name));
-                    dgvFiltler.DataSource = LoadedTransactions;
+                    foreach (Transactions item in LoadedTransactions)
+                    {
+                        lastrans.Add(item);
+                    }
+
+                    dgvFiltler.DataSource = lastrans;
                     dgvFiltler.Refresh();
                     return;
                 }
@@ -296,7 +303,7 @@ namespace ProyectoFinalControlGastos
                     return;
                 } 
             }
-            var lastrans = new List<Transactions>();
+            
 
             foreach (Transactions item in LoadedTransactions)
             {
