@@ -238,5 +238,10 @@ namespace ProyectoFinalControlGastos
         {
             addNewMethod.Text = string.Empty;
         }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
