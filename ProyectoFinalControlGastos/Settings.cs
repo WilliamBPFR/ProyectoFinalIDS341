@@ -43,12 +43,15 @@ namespace ProyectoFinalControlGastos
         private void button5_Click(object sender, EventArgs e)
         {
             Close();
+            Program.Cambio = true;
 
             foreach (Form item in Application.OpenForms)
             {
                 if (item is Login) {
                     item.Show();
                     return;
+                }else if (item is General){
+                    item.Close();
                 }
             }
         }

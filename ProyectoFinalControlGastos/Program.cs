@@ -9,7 +9,7 @@ namespace ProyectoFinalControlGastos
         /// </summary>
 
         public static Users logedUser { get; set; }
-
+        public static bool Cambio { get; set; } = false;
         [STAThread]
 
         static void Main()
