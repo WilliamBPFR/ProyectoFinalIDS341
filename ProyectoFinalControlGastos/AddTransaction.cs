@@ -174,7 +174,7 @@ namespace ProyectoFinalControlGastos
             btnBorrar.Enabled = true;
         }
 
-        private void Add(bool Loading)//Guardar las Transacciones
+        private void Add(bool Loading)//Guardar las Transacciones (Función Principal)
         {
             var json = string.Empty;
             var TransactionsList = new List<Transactions>();

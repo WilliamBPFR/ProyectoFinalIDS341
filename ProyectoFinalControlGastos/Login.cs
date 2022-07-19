@@ -61,5 +61,10 @@ namespace ProyectoFinalControlGastos
             Hide();//La oculto porque como es el form principal, si lo cierro se cierra la aplicación
 
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

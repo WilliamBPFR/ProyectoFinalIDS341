@@ -188,7 +188,7 @@ namespace ProyectoFinalControlGastos
             return true;
             }
 
-        private void Filtlar()
+        private void Filtlar()//Función Principal del Filtro
         {
             InitializeTransactions(false);
 
